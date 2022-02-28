@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_project/core/colors/constants.dart';
-import 'package:netflix_project/presentation/seach/widgets/title.dart';
+import 'package:netflix_project/presentation/widgets/content_heading_widget.dart';
+import 'package:netflix_project/presentation/widgets/movie_card_vertical_widget.dart';
 
-const imageUrl =
-    "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sKCr78MXSLixwmZ8DyJLrpMsd15.jpg";
 
 class SearchResultWidget extends StatelessWidget {
   const SearchResultWidget({Key? key}) : super(key: key);
@@ -14,7 +13,7 @@ class SearchResultWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SearchTitleWidget(title: "Movies & TV"),
+          const ContentHeadingWidget(title: "Movies & TV"),
           kHeight20,
           Expanded(
             child: GridView.count(
@@ -25,28 +24,11 @@ class SearchResultWidget extends StatelessWidget {
               childAspectRatio: 1.05 / 1.4,
               children: List.generate(
                 10,
-                (index) => const MovieCardVertical(),
+                (index) => const MovieCardVertical(imageUrl: kImageVertical),
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class MovieCardVertical extends StatelessWidget {
-  const MovieCardVertical({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        image: const DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(imageUrl),
-        ),
       ),
     );
   }
