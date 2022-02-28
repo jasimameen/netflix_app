@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:netflix_project/core/colors/colors.dart';
 import 'package:netflix_project/presentation/fast_laugh/screen_fast_laugh.dart';
 
+ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
+
+
 class BottomNavigationWidget extends StatelessWidget {
   const BottomNavigationWidget({Key? key}) : super(key: key);
 
