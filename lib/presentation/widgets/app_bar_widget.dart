@@ -27,7 +27,7 @@ class AppBarWidget extends StatelessWidget {
           // height: 30,
           // width: 30,
           // color: Colors.blue,
-          child:const Icon(
+          child: const Icon(
             Icons.portrait_rounded,
             size: 35,
           ),

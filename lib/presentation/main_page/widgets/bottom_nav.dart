@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_project/core/colors/colors.dart';
 import 'package:netflix_project/presentation/fast_laugh/screen_fast_laugh.dart';
@@ -20,19 +21,19 @@ class BottomNavigationWidget extends StatelessWidget {
         unselectedIconTheme: const IconThemeData(color: Colors.grey),
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(CupertinoIcons.home),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.collections),
+            icon: Icon(CupertinoIcons.collections),
             label: "New & Hot",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.emoji_emotions_outlined),
+            icon: Icon(CupertinoIcons.smiley),
             label: "Fast Laugh",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(CupertinoIcons.search),
             label: "Search",
           ),
           BottomNavigationBarItem(
