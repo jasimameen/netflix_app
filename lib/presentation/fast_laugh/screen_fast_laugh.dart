@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_project/presentation/fast_laugh/widget/video_list_item.dart';
 
-ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 
 class ScreenFastLaugh extends StatelessWidget {
   const ScreenFastLaugh({Key? key}) : super(key: key);
@@ -8,8 +8,12 @@ class ScreenFastLaugh extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("ScreenFastLaugh"),
+      body: SafeArea(
+        child: PageView(
+          scrollDirection: Axis.vertical,
+          children:
+              List.generate(5, (index) => VideoListItemWidget(index: index)),
+        ),
       ),
     );
   }
