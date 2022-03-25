@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/constants.dart';
-import 'package:netflix_project/presentation/widgets/content_heading_widget.dart';
-import 'package:netflix_project/presentation/widgets/movie_card_vertical_widget.dart';
+
+import '../../../core/colors/constants.dart';
+import '../../widgets/content_heading_widget.dart';
+import '../../widgets/image_card_vertical_widget.dart';
 
 
 class SearchResultWidget extends StatelessWidget {
@@ -24,7 +25,7 @@ class SearchResultWidget extends StatelessWidget {
               childAspectRatio: 1.05 / 1.4,
               children: List.generate(
                 10,
-                (index) => const MovieCardVertical(imageUrl: kImageVertical),
+                (index) => const ImageCardVertical(imageUrl: kVerticalImage),
               ),
             ),
           ),

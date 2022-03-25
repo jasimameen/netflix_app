@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/colors.dart';
-import 'package:netflix_project/presentation/fast_laugh/screen_fast_laugh.dart';
+import '../../../core/colors/colors.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 

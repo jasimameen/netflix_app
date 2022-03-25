@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_project/presentation/fast_laugh/widget/video_list_item.dart';
+import 'widget/video_list_item.dart';
 
 
 class ScreenFastLaugh extends StatelessWidget {

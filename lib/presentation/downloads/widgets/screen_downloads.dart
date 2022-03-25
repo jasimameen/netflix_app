@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/colors.dart';
-import 'package:netflix_project/core/colors/constants.dart';
-import 'package:netflix_project/presentation/widgets/app_bar_widget.dart';
+import '../../../core/colors/colors.dart';
+import '../../../core/colors/constants.dart';
+import '../../widgets/custom_app_bar_widget.dart';
 
 class ScreenDownloads extends StatelessWidget {
   ScreenDownloads({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class ScreenDownloads extends StatelessWidget {
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(50),
-        child: AppBarWidget(title: "Downloads"),
+        child: CustomAppBarWidget(label: "Downloads"),
       ),
       body: ListView.separated(
         padding: const EdgeInsets.all(10),

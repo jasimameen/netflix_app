@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/colors.dart';
-import 'package:netflix_project/presentation/downloads/widgets/screen_downloads.dart';
-import 'package:netflix_project/presentation/fast_laugh/screen_fast_laugh.dart';
-import 'package:netflix_project/presentation/home/screen_home.dart';
-import 'package:netflix_project/presentation/main_page/widgets/bottom_nav.dart';
-import 'package:netflix_project/presentation/new_and_hot/screen_new_and_hot.dart';
-import 'package:netflix_project/presentation/seach/screen_search.dart';
+import '../../../core/colors/colors.dart';
+import '../../downloads/widgets/screen_downloads.dart';
+import '../../fast_laugh/screen_fast_laugh.dart';
+import '../../home/screen_home.dart';
+import 'bottom_nav.dart';
+import '../../new_and_hot/screen_new_and_hot.dart';
+import '../../seach/screen_search.dart';
 
 class ScreenMainPage extends StatelessWidget {
   ScreenMainPage({Key? key}) : super(key: key);
 
   final _pages = [
-    ScreenHome(), //0
-    ScreenNewAndHot(), //1
-    ScreenFastLaugh(), //2
-    ScreenSearch(), //3
+    const ScreenHome(), //0
+    const ScreenNewAndHot(), //1
+    const ScreenFastLaugh(), //2
+    const ScreenSearch(), //3
     ScreenDownloads(), //4
   ];
 

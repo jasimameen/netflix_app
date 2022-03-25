@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/colors.dart';
-import 'package:netflix_project/core/colors/constants.dart';
+import '../../../core/colors/colors.dart';
+import '../../widgets/vertical_action_button_widget.dart';
 
 class VideoListItemWidget extends StatelessWidget {
   final int index;
@@ -37,26 +37,27 @@ class VideoListItemWidget extends StatelessWidget {
                 // Right Side
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    CircleAvatar(
-                      backgroundImage:
-                          NetworkImage("https://source.unsplash.com/500x500"),
+                  children: [
+                    const CircleAvatar(
+                      backgroundImage: NetworkImage(
+                        "https://images.unsplash.com/photo-1646036185415-c9285526b584?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
+                      ),
                     ),
-                    FastLaughActionButtonWidget(
+                    VerticalActionButtonWidget(
                       icon: CupertinoIcons.smiley,
-                      title: "LOL",
+                      label: "LOL",
                     ),
-                    FastLaughActionButtonWidget(
+                    VerticalActionButtonWidget(
                       icon: CupertinoIcons.add_circled,
-                      title: "My List",
+                      label: "My List",
                     ),
-                    FastLaughActionButtonWidget(
+                    VerticalActionButtonWidget(
                       icon: CupertinoIcons.share,
-                      title: "Share",
+                      label: "Share",
                     ),
-                    FastLaughActionButtonWidget(
+                    VerticalActionButtonWidget(
                       icon: CupertinoIcons.play_arrow_solid,
-                      title: "Play",
+                      label: "Play",
                     ),
                   ],
                 )
@@ -65,52 +66,6 @@ class VideoListItemWidget extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class FastLaughActionButtonWidget extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  const FastLaughActionButtonWidget({
-    Key? key,
-    required this.icon,
-    required this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          Icon(
-            icon,
-            size: 35,
-          ),
-          kHeight,
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 16,
-              shadows: [
-                BoxShadow(
-                  color: kBlackColor,
-                  spreadRadius: 10,
-                  blurRadius: 10,
-                  offset: Offset(2, 2),
-                ),
-                BoxShadow(
-                  color: kBlackColor,
-                  spreadRadius: 10,
-                  blurRadius: 10,
-                  offset: Offset(2, 2),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

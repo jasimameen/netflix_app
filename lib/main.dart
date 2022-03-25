@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:netflix_project/core/colors/colors.dart';
-import 'package:netflix_project/presentation/main_page/widgets/screen_main_page.dart';
+import 'core/colors/colors.dart';
+import 'presentation/main_page/widgets/screen_main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +16,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Netflix',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: kWhiteMaterial,
         backgroundColor: backgroundColor,
         scaffoldBackgroundColor: backgroundColor,
         fontFamily: GoogleFonts.montserrat().fontFamily,
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
         textTheme: const TextTheme(
           bodyText1: TextStyle(color: kWhiteColor),
           bodyText2: TextStyle(color: kWhiteColor),

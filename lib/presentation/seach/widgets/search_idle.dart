@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:netflix_project/core/colors/constants.dart';
-import 'package:netflix_project/presentation/widgets/content_heading_widget.dart';
+import '../../../core/colors/constants.dart';
+import '../../widgets/content_heading_widget.dart';
 
 class SearchIdleWidget extends StatelessWidget {
   const SearchIdleWidget({Key? key}) : super(key: key);
@@ -42,7 +42,7 @@ class TopSearchItemTile extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             image: const DecorationImage(
-              image: NetworkImage(kImageHorizontal),
+              image: NetworkImage(kHorizontalImage),
               fit: BoxFit.cover,
             ),
           ),

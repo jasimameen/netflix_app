@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/colors.dart';
-import 'package:netflix_project/core/colors/constants.dart';
-import 'package:netflix_project/presentation/seach/widgets/search_result.dart';
+import '../../core/colors/colors.dart';
+import '../../core/colors/constants.dart';
+import 'widgets/search_result.dart';
 
 class ScreenSearch extends StatelessWidget {
   const ScreenSearch({Key? key}) : super(key: key);
