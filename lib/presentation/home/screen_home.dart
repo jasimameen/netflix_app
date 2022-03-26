@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../core/colors/constants.dart';
-import 'widgets/home_main_dash_widget.dart';
 import '../widgets/image_cards_section.dart';
+import 'widgets/home_main_dash_widget.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({Key? key}) : super(key: key);

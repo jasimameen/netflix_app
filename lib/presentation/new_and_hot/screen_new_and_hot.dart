@@ -1,27 +1,24 @@
 import 'package:flutter/material.dart';
-import '../widgets/custom_app_bar_widget.dart';
+
+import 'widgets/build_everyones_watching.dart';
+import 'widgets/comming_soon.dart';
+import 'widgets/new_and_hot_app_bar.dart';
 
 class ScreenNewAndHot extends StatelessWidget {
   const ScreenNewAndHot({Key? key}) : super(key: key);
 
+  final tabs = const [
+    CommingSoonTabView(),
+    EveryOnesWatchingTabView(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: CustomAppBarWidget(
-          label: "New & Hot",
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                text: "Comming Soon",
-              )
-            ],
-          ),
-        ),
-      ),
-      body: Center(
-        child: Text("ScreenNewAndHot"),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: newAndHotAppBar(),
+        body: TabBarView(children: tabs),
       ),
     );
   }

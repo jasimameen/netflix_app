@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../widgets/mute_button.dart';
 import '../../../core/colors/colors.dart';
 import '../../widgets/vertical_action_button_widget.dart';
 
@@ -23,15 +24,8 @@ class VideoListItemWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 // left Side
-                CircleAvatar(
-                  backgroundColor: kBlackColor.withOpacity(.5),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      CupertinoIcons.volume_off,
-                      color: kWhiteColor,
-                    ),
-                  ),
+                MuteButton(
+                  onPressed: () {},
                 ),
 
                 // Right Side
@@ -69,3 +63,4 @@ class VideoListItemWidget extends StatelessWidget {
     );
   }
 }
+

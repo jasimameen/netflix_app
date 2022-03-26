@@ -1,11 +1,19 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
+// Width
+const kWidth5 = SizedBox(width: 5);
 const kWidth = SizedBox(width: 10);
 const kWidth20 = SizedBox(width: 20);
 
+// Height
+const kHeight5 = SizedBox(height: 5);
 const kHeight = SizedBox(height: 10);
 const kHeight20 = SizedBox(height: 20);
+
+// BorderRadius
+final BorderRadius kRadius10 = BorderRadius.circular(10);
+final BorderRadius kRadius20 = BorderRadius.circular(20);
+final BorderRadius kRadius30 = BorderRadius.circular(30);
 
 // Text Styles
 const kHomeAppbarTextStyle = TextStyle(

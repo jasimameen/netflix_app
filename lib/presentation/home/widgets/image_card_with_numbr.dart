@@ -1,8 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../../core/colors/colors.dart';
-import 'bordered_text_widget.dart';
 import '../../widgets/image_card_vertical_widget.dart';
+import 'bordered_text_widget.dart';
 
 class ImageCardWithNumber extends StatelessWidget {
   final String imageUrl;
