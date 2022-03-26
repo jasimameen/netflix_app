@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../widgets/mute_button.dart';
-import '../../../core/colors/colors.dart';
 import '../../widgets/vertical_action_button_widget.dart';
 
 class VideoListItemWidget extends StatelessWidget {

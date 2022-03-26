@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:netflix_project/presentation/new_and_hot/widgets/video_tumbnail_card_widget.dart';
 
 import '../../../core/colors/colors.dart';
 import '../../../core/colors/constants.dart';
-import '../../widgets/mute_button.dart';
 import '../../widgets/vertical_action_button_widget.dart';
 import '../screen_new_and_hot.dart';
 
@@ -72,77 +72,55 @@ class CommingSoonCard extends StatelessWidget {
     return SizedBox(
       width: size.width - 60,
       height: double.maxFinite,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          kHeight,
-          _showCardTumbnail(),
-          kHeight,
-          _showCardTitleRow(),
-          const Text(
-            'Comming on Friday',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            kHeight,
+            const VideoTumbnailCardWidget(),
+            kHeight,
+            _showCardTitleRow(),
+            const Text(
+              'Comming on Friday',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          kHeight,
-          Container(
-            width: 50,
-            height: 15,
-            decoration: const BoxDecoration(
-              color: Colors.purple,
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(
-                  "https://fiverr-res.cloudinary.com/videos/t_main1,q_auto,f_auto/femh4l8p2fdc08vz8ok0/design-4k-neon-sign-logo-intro-animation-video.png",
+            kHeight,
+            Container(
+              width: 50,
+              height: 15,
+              decoration: const BoxDecoration(
+                color: Colors.purple,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                    "https://fiverr-res.cloudinary.com/videos/t_main1,q_auto,f_auto/femh4l8p2fdc08vz8ok0/design-4k-neon-sign-logo-intro-animation-video.png",
+                  ),
                 ),
               ),
             ),
-          ),
-          const Text(
-            "InPlainSight",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+            const Text(
+              "InPlainSight",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-          kWidth,
-          const Text(
-            "Landing the lead in the school musical is a dream com true for Jodi, until the presure sends her confidence --- and her relationship -- into a tailspin",
-            style: TextStyle(
-              color: kGreyColor,
-              fontSize: 19,
-              overflow: TextOverflow.ellipsis,
+            kHeight5,
+            const Text(
+              "Landing the lead in the school musical is a dream com true for Jodi, until the presure sends her confidence --- and her relationship -- into a tailspin",
+              style: TextStyle(
+                color: kGreyColor,
+                fontSize: 19,
+                overflow: TextOverflow.ellipsis,
+              ),
+              maxLines: 5,
             ),
-            maxLines: 5,
-          ),
-        ],
+          ],
+        ),
       ),
-    );
-  }
-
-  Stack _showCardTumbnail() {
-    return Stack(
-      children: [
-        Container(
-          height: 200,
-          decoration: const BoxDecoration(
-              color: kGreyColor,
-              image: DecorationImage(
-                image: NetworkImage(kHorizontalImage),
-                fit: BoxFit.cover,
-              )),
-        ),
-        Positioned(
-          right: 10,
-          bottom: 10,
-          child: MuteButton(
-            onPressed: () {},
-            size: 22,
-          ),
-        ),
-      ],
     );
   }
 

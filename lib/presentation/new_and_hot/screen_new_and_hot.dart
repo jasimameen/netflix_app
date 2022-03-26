@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/build_everyones_watching.dart';
+import 'widgets/everyones_watching.dart';
 import 'widgets/comming_soon.dart';
 import 'widgets/new_and_hot_app_bar.dart';
 
