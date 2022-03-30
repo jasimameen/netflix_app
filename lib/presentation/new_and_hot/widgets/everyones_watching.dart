@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/constants.dart';
-import 'package:netflix_project/presentation/new_and_hot/widgets/video_tumbnail_card_widget.dart';
-import 'package:netflix_project/presentation/widgets/vertical_action_button_widget.dart';
+import '../../../core/colors/constants.dart';
+import 'video_tumbnail_card_widget.dart';
+import '../../widgets/vertical_action_button_widget.dart';
 import '../../../core/colors/colors.dart';
 
 class EveryOnesWatchingTabView extends StatelessWidget {

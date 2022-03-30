@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:netflix_project/presentation/new_and_hot/widgets/video_tumbnail_card_widget.dart';
+import 'video_tumbnail_card_widget.dart';
 
 import '../../../core/colors/colors.dart';
 import '../../../core/colors/constants.dart';

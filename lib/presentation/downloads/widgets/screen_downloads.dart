@@ -1,6 +1,10 @@
 import 'dart:math';
 
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_project/application/downloads/downloads_bloc.dart';
+import 'package:netflix_project/core/colors/strings.dart';
 import '../../../core/colors/colors.dart';
 import '../../../core/colors/constants.dart';
 import '../../widgets/custom_app_bar_widget.dart';
@@ -52,14 +56,16 @@ class _Section1 extends StatelessWidget {
 class _Section2 extends StatelessWidget {
   _Section2({Key? key}) : super(key: key);
 
-  final List<String> imageList = [
-    "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vDHsLnOWKlPGmWs0kGfuhNF4w5l.jpg",
-    "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
-    "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3H1WFCuxyNRP35oiL2qqwhAXxc0.jpg",
-  ];
-
   @override
   Widget build(BuildContext context) {
+    // here below statement used to call the api after the complete ui loaded
+    // so here when the ui loaded completely the next call will be the below statement
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      context
+          .read<DownloadsBloc>()
+          .add(const DownloadsEvent.getDownloadsImage());
+    });
+
     final size = MediaQuery.of(context).size;
 
     return Column(
@@ -85,38 +91,51 @@ class _Section2 extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 30),
-          child: SizedBox(
-            width: size.width,
-            // height: size.width,
-            child: Center(
-              child: Stack(
-                alignment: Alignment.bottomCenter,
-                children: [
-                  CircleAvatar(
-                    radius: size.width * .32,
-                    backgroundColor: kGreyColor.withOpacity(.5),
-                  ),
-                  DownloadPageCenterImageWidget(
-                    image: imageList[0],
-                    size: Size(size.width * .28, size.width * .43),
-                    angle: 20,
-                    leftMargin: 190,
-                  ),
-                  DownloadPageCenterImageWidget(
-                    image: imageList[1],
-                    size: Size(size.width * .28, size.width * .43),
-                    angle: -20,
-                    rightMargin: 190,
-                  ),
-                  DownloadPageCenterImageWidget(
-                    image: imageList[2],
-                    size: Size(size.width * .35, size.width * .48),
-                    angle: 0,
-                    bottomMargin: 30,
-                  )
-                ],
-              ),
-            ),
+          child: BlocBuilder<DownloadsBloc, DownloadsState>(
+            builder: (context, state) {
+              // this will store the images from api to the below imageList
+              final imageList = [
+                "$imageAppendUrl/${state.downloads[0].posterPath}",
+                "$imageAppendUrl/${state.downloads[1].posterPath}",
+                "$imageAppendUrl/${state.downloads[2].posterPath}",
+              ];
+
+              return SizedBox(
+                width: size.width,
+                height: size.width * .60,
+                child: state.isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          state.isLoading
+                              ? const CircularProgressIndicator()
+                              : CircleAvatar(
+                                  radius: size.width * .32,
+                                  backgroundColor: kGreyColor.withOpacity(.5),
+                                ),
+                          DownloadPageCenterImageWidget(
+                            image: imageList[0],
+                            size: Size(size.width * .28, size.width * .43),
+                            angle: 20,
+                            leftMargin: 190,
+                          ),
+                          DownloadPageCenterImageWidget(
+                            image: imageList[1],
+                            size: Size(size.width * .28, size.width * .43),
+                            angle: -20,
+                            rightMargin: 190,
+                          ),
+                          DownloadPageCenterImageWidget(
+                            image: imageList[2],
+                            size: Size(size.width * .35, size.width * .48),
+                            angle: 0,
+                            bottomMargin: 30,
+                          )
+                        ],
+                      ),
+              );
+            },
           ),
         ),
       ],
