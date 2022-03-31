@@ -15,7 +15,7 @@ class SearchRepoImpl implements ISearchRepo {
     required String movieQuery,
   }) async {
     try {
-      final Response responce = await Dio(BaseOptions()).get(
+      final responce = await Dio(BaseOptions()).get(
         ApiEndPoints.search,
         queryParameters: {
           'query': movieQuery,
@@ -23,7 +23,7 @@ class SearchRepoImpl implements ISearchRepo {
       );
 
       if (responce.statusCode == 200 || responce.statusCode == 201) {
-        final result = SearchResp.fromJson(responce.data);
+        final result = SearchResp.fromMap(responce.data);
         return Right(result);
       } else {
         return const Left(Failure.serverFailure());
