@@ -93,16 +93,9 @@ class _Section2 extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 30),
           child: BlocBuilder<DownloadsBloc, DownloadsState>(
             builder: (context, state) {
-              // this will store the images from api to the below imageList
-              final imageList = [
-                "$imageAppendUrl/${state.downloads[0].posterPath}",
-                "$imageAppendUrl/${state.downloads[1].posterPath}",
-                "$imageAppendUrl/${state.downloads[2].posterPath}",
-              ];
-
               return SizedBox(
                 width: size.width,
-                height: size.width * .60,
+                // height: size.width,
                 child: state.isLoading
                     ? const Center(child: CircularProgressIndicator())
                     : Stack(
@@ -115,19 +108,22 @@ class _Section2 extends StatelessWidget {
                                   backgroundColor: kGreyColor.withOpacity(.5),
                                 ),
                           DownloadPageCenterImageWidget(
-                            image: imageList[0],
+                            image:
+                                "$imageAppendUrl/${state.downloads[0].posterPath}",
                             size: Size(size.width * .28, size.width * .43),
                             angle: 20,
                             leftMargin: 190,
                           ),
                           DownloadPageCenterImageWidget(
-                            image: imageList[1],
+                            image:
+                                "$imageAppendUrl/${state.downloads[1].posterPath}",
                             size: Size(size.width * .28, size.width * .43),
                             angle: -20,
                             rightMargin: 190,
                           ),
                           DownloadPageCenterImageWidget(
-                            image: imageList[2],
+                            image:
+                                "$imageAppendUrl/${state.downloads[2].posterPath}",
                             size: Size(size.width * .35, size.width * .48),
                             angle: 0,
                             bottomMargin: 30,

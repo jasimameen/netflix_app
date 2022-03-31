@@ -10,7 +10,7 @@ import '../../domain/downloads/i_downloads_repo.dart';
 import '../../domain/downloads/models/downloads.dart';
 
 @LazySingleton(as: IDownloadsRepo)
-class DownloadsRepository implements IDownloadsRepo {
+class DownloadsRepoImpl implements IDownloadsRepo {
   @override
   Future<Either<Failure, List<Downloads>>> getDownloadsImage() async {
     try {
@@ -18,9 +18,11 @@ class DownloadsRepository implements IDownloadsRepo {
           await Dio(BaseOptions()).get(ApiEndPoints.downloads);
 
       if (responce.statusCode == 200 || responce.statusCode == 201) {
-        final downloadsList = (responce.data['results'] as List).map((e) {
-          return Downloads.fromJson(e as Map<String, dynamic>);
-        }).toList();
+        final downloadsList = (responce.data['results'] as List)
+            .map((json) {
+              return Downloads.fromJson(json as Map<String, dynamic>);
+            })
+            .toList();
 
         return Right(downloadsList);
       } else {

@@ -30,7 +30,7 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
         final Either<Failure, List<Downloads>> downloadsOption =
             await _downloadsRepo.getDownloadsImage();
 
-        log(downloadsOption.toString());
+        // log(downloadsOption.toString());
 
         emit(
           downloadsOption.fold(
