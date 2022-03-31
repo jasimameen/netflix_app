@@ -26,6 +26,12 @@ Search Result State
 */
 
     on<_Initialize>((event, emit) async {
+      if (state.idleList.isNotEmpty) {
+        // noting will be emmited. whatever in the state will be remain there
+        // this function just return here
+        return;
+      }
+
       emit(state.copyWith(
         searchResultList: [],
         idleList: [],
