@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import '../../core/colors/colors.dart';
 
 class VerticalActionButtonWidget extends StatelessWidget {
+  // onTap
+  void Function()? onTap;
   // Text Properties
   final String label;
   final double? fontSize;
@@ -18,6 +20,7 @@ class VerticalActionButtonWidget extends StatelessWidget {
 
   VerticalActionButtonWidget({
     Key? key,
+    this.onTap,
     required this.label,
     this.fontSize = 16,
     this.fontColor,
@@ -29,40 +32,43 @@ class VerticalActionButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          Icon(
-            icon,
-            size: iconSize,
-            color: iconColor,
-          ),
-          SizedBox(
-            height: verticalGap,
-          ),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: fontSize,
-              color: fontColor,
-              shadows: const [
-                BoxShadow(
-                  color: kBlackColor,
-                  spreadRadius: 10,
-                  blurRadius: 10,
-                  offset: Offset(2, 2),
-                ),
-                BoxShadow(
-                  color: kBlackColor,
-                  spreadRadius: 10,
-                  blurRadius: 10,
-                  offset: Offset(2, 2),
-                ),
-              ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            Icon(
+              icon,
+              size: iconSize,
+              color: iconColor,
             ),
-          ),
-        ],
+            SizedBox(
+              height: verticalGap,
+            ),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: fontSize,
+                color: fontColor,
+                shadows: const [
+                  BoxShadow(
+                    color: kBlackColor,
+                    spreadRadius: 10,
+                    blurRadius: 10,
+                    offset: Offset(2, 2),
+                  ),
+                  BoxShadow(
+                    color: kBlackColor,
+                    spreadRadius: 10,
+                    blurRadius: 10,
+                    offset: Offset(2, 2),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

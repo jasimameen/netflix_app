@@ -1,5 +1,6 @@
-import 'package:flutter/foundation.dart' show VoidCallback;
 import 'dart:async' show Timer;
+
+import 'package:flutter/foundation.dart' show VoidCallback;
 
 /// Debounce the text field
 class Debouncer {
