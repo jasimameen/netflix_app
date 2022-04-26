@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:netflix_project/application/downloads/downloads_bloc.dart';
-import 'package:netflix_project/application/search/search_bloc.dart';
-import 'package:netflix_project/domain/core/di/injectable.dart';
 
+import 'application/downloads/downloads_bloc.dart';
 import 'application/fast_laugh/fast_laugh_bloc.dart';
+import 'application/new_and_hot/new_and_hot_bloc.dart';
+import 'application/search/search_bloc.dart';
 import 'core/colors/colors.dart';
+import 'domain/core/di/injectable.dart';
 import 'presentation/main_page/widgets/screen_main_page.dart';
 
 Future<void> main() async {
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (ctx) => getIt<DownloadsBloc>()),
         BlocProvider(create: (ctx) => getIt<SearchBloc>()),
         BlocProvider(create: (ctx) => getIt<FastLaughBloc>()),
+        BlocProvider(create: (ctx) => getIt<NewAndHotBloc>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

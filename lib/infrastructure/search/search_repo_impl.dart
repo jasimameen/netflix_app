@@ -1,12 +1,13 @@
 import 'dart:developer';
 
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/core/api_end_points.dart';
-import 'package:netflix_project/domain/core/failure.dart';
-import 'package:dartz/dartz.dart';
-import 'package:netflix_project/domain/search/i_search_repo.dart';
-import 'package:netflix_project/domain/search/models/search_resp/search_resp.dart';
+
+import '../../domain/core/api_end_points.dart';
+import '../../domain/core/failure.dart';
+import '../../domain/search/i_search_repo.dart';
+import '../../domain/search/models/search_resp/search_resp.dart';
 
 @LazySingleton(as: ISearchRepo)
 class SearchRepoImpl implements ISearchRepo {

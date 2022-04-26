@@ -1,25 +1,30 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/colors/colors.dart';
-import '../../../core/colors/constants.dart';
 import '../../widgets/mute_button.dart';
 
 class VideoTumbnailCardWidget extends StatelessWidget {
+  final String image;
+
   const VideoTumbnailCardWidget({
     Key? key,
+    required this.image,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    log("this is the image path => " + image);
     return Stack(
       children: [
         Container(
           height: 230,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               color: kGreyColor,
               image: DecorationImage(
-                image: NetworkImage(kHorizontalImage),
+                image: NetworkImage(image),
                 fit: BoxFit.cover,
               )),
         ),

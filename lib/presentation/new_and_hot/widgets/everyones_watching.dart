@@ -28,7 +28,7 @@ class _EveryOnesWatchingCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const VideoTumbnailCardWidget(),
+           VideoTumbnailCardWidget(image: kHorizontalImage,),
           _buttonsRow(),
           kHeight,
           const Text(
