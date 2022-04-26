@@ -24,35 +24,41 @@ class CommingSoonTabView extends StatelessWidget {
           .add(const NewAndHotEvent.loadDataInCommingSoon());
     });
 
-    return BlocBuilder<NewAndHotBloc, NewAndHotState>(
-      builder: (context, state) {
-        if (state.isLoading) {
-          return const Center(child: CircularProgressIndicator(strokeWidth: 2));
-        }
-        if (state.isError) {
-          return const Center(child: Text("Error Occured"));
-        }
-        if (state.commingSoonList.isEmpty) {
-          return const Center(
-              child: Text("No Data to Show \n Comming soon List is empty"));
-        }
-        return ListView.builder(
-          itemBuilder: (context, index) {
-            final data = state.commingSoonList[index];
-            return data.id != null
-                ? CommingSoonCard(
-                    key: const Key('commig_soon'),
-                    id: data.id.toString(),
-                    date: data.releaseDate,
-                    backgroundImage: "$imageAppendUrl${data.backdropPath}",
-                    title: data.title ?? data.originalTitle,
-                    overView: data.overview ?? 'no Description',
-                  )
-                : const SizedBox();
-          },
-          itemCount: state.commingSoonList.length,
-        );
-      },
+    return RefreshIndicator(
+      onRefresh: () async => context
+          .read<NewAndHotBloc>()
+          .add(const NewAndHotEvent.loadDataInCommingSoon()),
+      child: BlocBuilder<NewAndHotBloc, NewAndHotState>(
+        builder: (context, state) {
+          if (state.isLoading) {
+            return const Center(
+                child: CircularProgressIndicator(strokeWidth: 2));
+          }
+          if (state.isError) {
+            return const Center(child: Text("Error Occured"));
+          }
+          if (state.commingSoonList.isEmpty) {
+            return const Center(
+                child: Text("No Data to Show \n Comming soon List is empty"));
+          }
+          return ListView.builder(
+            itemBuilder: (context, index) {
+              final data = state.commingSoonList[index];
+              return data.id != null
+                  ? CommingSoonCard(
+                      key: const Key('commig_soon'),
+                      id: data.id.toString(),
+                      date: data.releaseDate,
+                      backgroundImage: "$imageAppendUrl${data.backdropPath}",
+                      title: data.title ?? data.originalTitle,
+                      overView: data.overview ?? 'no Description',
+                    )
+                  : const SizedBox();
+            },
+            itemCount: state.commingSoonList.length,
+          );
+        },
+      ),
     );
   }
 }
@@ -77,7 +83,7 @@ class CommingSoonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
       height: 460,
       child: Row(
         children: [
@@ -107,8 +113,10 @@ class _DateSlider extends StatelessWidget {
     // formating Date
     final _date = DateTime.parse(date);
     final _month = DateFormat.MMM('en_US').format(_date); // eg: February = Feb
+
     final _tempDay = DateFormat.d('en_US').format(_date); // eg: 1,2,3..31
-    final _day = _tempDay.length.isEven ? _tempDay : "0$_tempDay"; //eg: 01,02,03...31
+    final _day =
+        _tempDay.length.isEven ? _tempDay : "0$_tempDay"; //eg: 01,02,03...31
 
     return SizedBox(
       height: double.maxFinite,

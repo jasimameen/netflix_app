@@ -1,25 +1,58 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../../core/colors/constants.dart';
-import 'video_tumbnail_card_widget.dart';
-import '../../widgets/vertical_action_button_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix_project/core/colors/strings.dart';
+
+import '../../../application/new_and_hot/new_and_hot_bloc.dart';
 import '../../../core/colors/colors.dart';
+import '../../../core/colors/constants.dart';
+import '../../widgets/vertical_action_button_widget.dart';
+import 'video_tumbnail_card_widget.dart';
 
 class EveryOnesWatchingTabView extends StatelessWidget {
   const EveryOnesWatchingTabView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, index) => const _EveryOnesWatchingCard(),
-      itemCount: 2,
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      context
+          .read<NewAndHotBloc>()
+          .add(const NewAndHotEvent.loadDataInEveryOnesWatching());
+    });
+
+    return RefreshIndicator(
+      onRefresh: () async => context
+          .read<NewAndHotBloc>()
+          .add(const NewAndHotEvent.loadDataInEveryOnesWatching()),
+      child: BlocBuilder<NewAndHotBloc, NewAndHotState>(
+        builder: (context, state) {
+          return ListView.builder(
+            itemBuilder: (context, index) {
+              final _data = state.everyOnesWatchingList[index];
+              return _EveryOnesWatchingCard(
+                image: imageAppendUrl + _data.backdropPath,
+                title: _data.name ?? _data.originalName,
+                overView: _data.overview,
+              );
+            },
+            itemCount: state.everyOnesWatchingList.length,
+          );
+        },
+      ),
     );
   }
 }
 
 /// EveryOnes Watching item Card used For [EveryOnesWatchingTabView]
 class _EveryOnesWatchingCard extends StatelessWidget {
-  const _EveryOnesWatchingCard({Key? key}) : super(key: key);
+  final String image, title;
+  final String? overView;
+  const _EveryOnesWatchingCard({
+    Key? key,
+    required this.image,
+    required this.title,
+    required this.overView,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,25 +61,27 @@ class _EveryOnesWatchingCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           VideoTumbnailCardWidget(image: kHorizontalImage,),
+          VideoTumbnailCardWidget(
+            image: image,
+          ),
           _buttonsRow(),
           kHeight,
-          const Text(
-            "Friends",
-            style: TextStyle(
+          Text(
+            title,
+            style: const TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),
           ),
           kHeight5,
-          const Text(
-            "Landing the lead in the school musical is a dream com true for Jodi, until the presure sends her confidence --- and her relationship -- into a tailspin",
-            style: TextStyle(
+          Text(
+            overView!,
+            style: const TextStyle(
               color: kGreyColor,
               fontSize: 19,
               overflow: TextOverflow.ellipsis,
             ),
-            maxLines: 5,
+            maxLines: 4,
           ),
           kHeight,
         ],

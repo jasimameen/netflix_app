@@ -22,11 +22,22 @@ class VideoTumbnailCardWidget extends StatelessWidget {
         Container(
           height: 230,
           decoration: BoxDecoration(
-              color: kGreyColor,
-              image: DecorationImage(
-                image: NetworkImage(image),
-                fit: BoxFit.cover,
-              )),
+            color: Colors.grey[850],
+          ),
+          child: Image.network(
+            image,
+            fit: BoxFit.cover,
+            loadingBuilder: (context, child, loadingProgress) {
+              return loadingProgress != null
+                  ? const Center(
+                      child: CircularProgressIndicator(strokeWidth: 2),
+                    )
+                  : child;
+            },
+            errorBuilder: (context, error, stackTrace) => const Center(
+                child: Icon(CupertinoIcons.wifi_exclamationmark, size: 30)),
+          ),
+          clipBehavior: Clip.hardEdge,
         ),
         Positioned(
           right: 10,

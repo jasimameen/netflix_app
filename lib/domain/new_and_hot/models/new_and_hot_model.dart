@@ -64,7 +64,13 @@ class NewAndHotData {
   @JsonKey(name: 'original_title')
   final String originalTitle;
 
+  //use [originalName] insted of [originalTitle] in tvData
+  @JsonKey(name: 'original_name')
+  final String originalName;
+
   final String? title;
+
+  final String? name; //use [name] insted of [title] in tvData
 
   final String? overview;
 
@@ -74,7 +80,9 @@ class NewAndHotData {
     required this.posterPath,
     required this.releaseDate,
     required this.originalTitle,
+    required this.originalName,
     required this.title,
+    required this.name,
     required this.overview,
   });
 
@@ -84,7 +92,9 @@ class NewAndHotData {
     String? posterPath,
     String? releaseDate,
     String? originalTitle,
+    String? originalName,
     String? title,
+    String? name,
     String? overview,
   }) {
     return NewAndHotData(
@@ -93,7 +103,9 @@ class NewAndHotData {
       posterPath: posterPath ?? this.posterPath,
       releaseDate: releaseDate ?? this.releaseDate,
       originalTitle: originalTitle ?? this.originalTitle,
+      originalName: originalName ?? this.originalName,
       title: title ?? this.title,
+      name: name ?? this.name,
       overview: overview ?? this.overview,
     );
   }
@@ -105,7 +117,9 @@ class NewAndHotData {
       'poster_path': posterPath,
       'release_date': releaseDate,
       'original_title': originalTitle,
+      'original_name': originalName,
       'title': title,
+      'name': name,
       'overview': overview,
     };
   }
@@ -117,7 +131,9 @@ class NewAndHotData {
       posterPath: map['poster_path'] ?? '',
       releaseDate: map['release_date'] ?? '',
       originalTitle: map['original_title'] ?? '',
+      originalName: map['original_name'] ?? '',
       title: map['title'],
+      name: map['name'],
       overview: map['overview'],
     );
   }
@@ -129,7 +145,7 @@ class NewAndHotData {
 
   @override
   String toString() {
-    return 'NewAndHotData(id: $id, backdropPath: $backdropPath, posterPath: $posterPath, releaseDate: $releaseDate, originalTitle: $originalTitle, title: $title, overview: $overview)';
+    return 'NewAndHotData(id: $id, backdropPath: $backdropPath, posterPath: $posterPath, releaseDate: $releaseDate, originalTitle: $originalTitle, originalName: $originalName, title: $title, name: $name, overview: $overview)';
   }
 
   @override
@@ -142,7 +158,9 @@ class NewAndHotData {
         other.posterPath == posterPath &&
         other.releaseDate == releaseDate &&
         other.originalTitle == originalTitle &&
+        other.originalName == originalName &&
         other.title == title &&
+        other.name == name &&
         other.overview == overview;
   }
 
@@ -153,7 +171,9 @@ class NewAndHotData {
         posterPath.hashCode ^
         releaseDate.hashCode ^
         originalTitle.hashCode ^
+        originalName.hashCode ^
         title.hashCode ^
+        name.hashCode ^
         overview.hashCode;
   }
 }
