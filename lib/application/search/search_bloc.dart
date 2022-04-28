@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -23,8 +21,6 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 /*
 Search Result State
 */
-
-
 
     on<_Initialize>((event, emit) async {
       if (state.idleList.isNotEmpty) {
@@ -76,7 +72,6 @@ Search Result State
 
     on<_SearchMovie>((event, emit) async {
       // call Search movie Api
-      log("Searching ${event.movieQuery}");
       emit(state.copyWith(
         searchResultList: [],
         idleList: [],
@@ -84,7 +79,7 @@ Search Result State
         isError: false,
       ));
 
-      if (event.movieQuery.isNotEmpty|| event.movieQuery.trim().isEmpty) {
+      if (event.movieQuery.isNotEmpty || event.movieQuery.trim().isEmpty) {
         final _result =
             await _searchRepo.searchMovies(movieQuery: event.movieQuery);
         final _state = _result.fold(
@@ -101,9 +96,6 @@ Search Result State
             isError: true,
           ),
         );
-
-        log("search result => " + _result.toString());
-
         // Show to UI
         emit(_state);
       }

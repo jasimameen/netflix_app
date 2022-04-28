@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:netflix_project/core/colors/strings.dart';
+import '../../../../core/colors/strings.dart';
 
 class SearchResp {
   final List<SearchResultData> results;

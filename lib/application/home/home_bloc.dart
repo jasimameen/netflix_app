@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,23 +14,27 @@ part 'home_state.dart';
 @injectable
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final INewAndHotRepo _homeRepo;
-   
+
   HomeBloc(this._homeRepo) : super(HomeState.initial()) {
     on<_GetHomeScreendata>((event, emit) async {
+      // return if data alredy exists
+      if (state.movieList.isNotEmpty && state.tvShowList.isNotEmpty) {
+        return;
+      }
+
       //  send loading to ui
       emit(state.copyWith(isLoading: true, isError: false));
 
-      // get data
+      // get movie data
       final _movieResult = await _homeRepo.getNewAndHotMovieData();
-      final _tvResult = await _homeRepo.getNewAndHotTvData();
 
       // transform data
-     
+
       final _state1 = _movieResult.fold(
         (failure) => state.copyWith(
           movieList: [],
           isLoading: false,
-          isError: false,
+          isError: true,
         ),
         (resp) {
           final _movieList = resp.results;
@@ -45,11 +50,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // send movieState data to ui
       emit(_state1);
 
-      final _state2 = _tvResult.fold(
+      // get tvshows data
+      final _tvShowsResult = await _homeRepo.getNewAndHotTvData();
+
+      final _state2 = _tvShowsResult.fold(
           (failure) => state.copyWith(
                 tvShowList: [],
                 isLoading: false,
-                isError: false,
+                isError: true,
               ),
           (resp) => state.copyWith(
                 tvShowList: resp.results,

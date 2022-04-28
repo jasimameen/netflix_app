@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix_project/core/colors/strings.dart';
+import '../../../core/colors/strings.dart';
 
 import '../../../application/new_and_hot/new_and_hot_bloc.dart';
 import '../../../core/colors/colors.dart';
@@ -61,11 +61,42 @@ class _EveryOnesWatchingCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          kHeight,
+          // Tumbnail Card
           VideoTumbnailCardWidget(
             image: image,
           ),
-          _buttonsRow(),
+
+          // Video actionButtons (share, myList, Play)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              VerticalActionButtonWidget(
+                label: 'Share',
+                fontSize: 15,
+                icon: CupertinoIcons.share,
+                iconSize: 24,
+                verticalGap: 4,
+              ),
+              VerticalActionButtonWidget(
+                label: 'My List',
+                fontSize: 15,
+                icon: CupertinoIcons.add,
+                iconSize: 30,
+                verticalGap: 4,
+              ),
+              VerticalActionButtonWidget(
+                label: 'Play',
+                fontSize: 15,
+                icon: CupertinoIcons.play_arrow_solid,
+                iconSize: 30,
+                verticalGap: 4,
+              ),
+            ],
+          ),
           kHeight,
+
+          // Title
           Text(
             title,
             style: const TextStyle(
@@ -74,6 +105,8 @@ class _EveryOnesWatchingCard extends StatelessWidget {
             ),
           ),
           kHeight5,
+
+          // Overview
           Text(
             overView!,
             style: const TextStyle(
@@ -83,36 +116,8 @@ class _EveryOnesWatchingCard extends StatelessWidget {
             ),
             maxLines: 4,
           ),
-          kHeight,
         ],
       ),
     );
   }
-
-  Row _buttonsRow() => Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          VerticalActionButtonWidget(
-            label: 'Share',
-            fontSize: 15,
-            icon: CupertinoIcons.share,
-            iconSize: 24,
-            verticalGap: 4,
-          ),
-          VerticalActionButtonWidget(
-            label: 'My List',
-            fontSize: 15,
-            icon: CupertinoIcons.add,
-            iconSize: 30,
-            verticalGap: 4,
-          ),
-          VerticalActionButtonWidget(
-            label: 'Play',
-            fontSize: 15,
-            icon: CupertinoIcons.play_arrow_solid,
-            iconSize: 30,
-            verticalGap: 4,
-          ),
-        ],
-      );
 }

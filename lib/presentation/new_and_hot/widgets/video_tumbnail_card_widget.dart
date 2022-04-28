@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/colors/colors.dart';
 import '../../widgets/mute_button.dart';
 
 class VideoTumbnailCardWidget extends StatelessWidget {
@@ -16,7 +13,6 @@ class VideoTumbnailCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log("this is the image path => " + image);
     return Stack(
       children: [
         Container(

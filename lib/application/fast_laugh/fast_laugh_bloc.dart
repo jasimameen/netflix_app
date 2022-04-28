@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/downloads/i_downloads_repo.dart';
-import 'package:netflix_project/domain/downloads/models/downloads.dart';
+import '../../domain/downloads/i_downloads_repo.dart';
+import '../../domain/downloads/models/downloads.dart';
 
 part 'fast_laugh_event.dart';
 part 'fast_laugh_state.dart';

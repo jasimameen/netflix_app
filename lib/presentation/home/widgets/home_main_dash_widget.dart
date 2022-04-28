@@ -1,39 +1,51 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
-import 'package:flutter/material.dart' show Colors, ElevatedButton;
+import 'package:flutter/material.dart'
+    show CircularProgressIndicator, Colors, ElevatedButton;
 import 'package:flutter/widgets.dart';
+import 'package:netflix_project/core/colors/constants.dart';
 
 import '../../../core/colors/colors.dart';
 import '../../widgets/vertical_action_button_widget.dart';
 
 class HomeScreenBgCard extends StatelessWidget {
   final String image;
+  final bool isLoading;
   const HomeScreenBgCard({
     Key? key,
     required this.image,
+    this.isLoading = false,
   }) : super(key: key);
-
-
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        Container(
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height * .70,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(image),
-            ),
-          ),
-        ),
+        isLoading
+            ? SizedBox(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * .70,
+                child: const Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 1.5,
+                  ),
+                ),
+              )
+            : Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * .70,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(image),
+                  ),
+                ),
+              ),
         //bottom grey shadow
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 70,
+            height: 100,
             width: double.infinity,
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -41,6 +53,7 @@ class HomeScreenBgCard extends StatelessWidget {
                 begin: const Alignment(0.0, 0.4),
                 colors: <Color>[
                   kBlackColor,
+                  Colors.black12.withOpacity(0.50),
                   Colors.black12.withOpacity(0.0),
                 ],
               ),

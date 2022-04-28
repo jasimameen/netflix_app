@@ -8,41 +8,55 @@ class HomeCustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          end: const Alignment(0.0, -1),
-          begin: const Alignment(0.0, 0.4),
-          colors: <Color>[
-            kBlackColor,
-            Colors.black12.withOpacity(0.0),
-          ],
-        ),
-      ),
-      child: Column(
-        children: [
-          Row(
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Container(
+          height: 120,
+          width: double.maxFinite,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: <Color>[
+                kBlackColor,
+                Colors.black12.withOpacity(0.50),
+                Colors.black12.withOpacity(0.0),
+              ],
+            ),
+          ),
+          child: Column(
             children: [
-              kWidth20,
-              Image.network(kNetflixLogo),
-              const Spacer(),
-              const Icon(Icons.cast),
-              kWidth,
-              const Icon(Icons.smart_display_rounded),
-              kWidth,
+              Row(
+                children: [
+                  kWidth20,
+                  LimitedBox(
+                      maxHeight: 55,
+                      maxWidth: 55,
+                      child: Image.network(
+                        kNetflixLogo,
+                        fit: BoxFit.contain,
+                      )),
+                  const Spacer(),
+                  const Icon(Icons.cast),
+                  kWidth,
+                  const Icon(Icons.smart_display_rounded),
+                  kWidth,
+                ],
+              ),
+              kHeight,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: const [
+                  Text("Tv Shows", style: kHomeAppbarTextStyle),
+                  Text("Movies", style: kHomeAppbarTextStyle),
+                  Text("Catogaries", style: kHomeAppbarTextStyle),
+                ],
+              ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              Text("Tv Shows", style: kHomeAppbarTextStyle),
-              Text("Movies", style: kHomeAppbarTextStyle),
-              Text("Catogaries", style: kHomeAppbarTextStyle),
-            ],
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

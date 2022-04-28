@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix_project/application/search/search_bloc.dart';
-import 'package:netflix_project/core/colors/strings.dart';
+import '../../../application/search/search_bloc.dart';
+import '../../../core/colors/strings.dart';
 
 import '../../../core/colors/constants.dart';
 import '../../widgets/content_heading_widget.dart';

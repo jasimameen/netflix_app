@@ -1,14 +1,14 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/new_and_hot/i_new_and_hot_repo.dart';
-import 'package:netflix_project/domain/new_and_hot/models/new_and_hot_model.dart';
 
+import '../../domain/new_and_hot/i_new_and_hot_repo.dart';
+import '../../domain/new_and_hot/models/new_and_hot_model.dart';
+
+part 'new_and_hot_bloc.freezed.dart';
 part 'new_and_hot_event.dart';
 part 'new_and_hot_state.dart';
-part 'new_and_hot_bloc.freezed.dart';
 
 @injectable
 class NewAndHotBloc extends Bloc<NewAndHotEvent, NewAndHotState> {

@@ -19,7 +19,7 @@ class NewAndHotRepoImpl implements INewAndHotRepo {
 
       if (responce.statusCode == 200 || responce.statusCode == 201) {
         final result = NewAndHotModel.fromMap(responce.data);
-        log(result.results.toString());
+        log(result.results[0].toString());
         return Right(result);
       } else {
         return const Left(Failure.serverFailure());
