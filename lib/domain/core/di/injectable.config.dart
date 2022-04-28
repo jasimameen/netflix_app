@@ -9,6 +9,7 @@ import 'package:injectable/injectable.dart' as _i2;
 
 import '../../../application/downloads/downloads_bloc.dart' as _i11;
 import '../../../application/fast_laugh/fast_laugh_bloc.dart' as _i12;
+import '../../../application/home/home_bloc.dart' as _i13;
 import '../../../application/new_and_hot/new_and_hot_bloc.dart' as _i9;
 import '../../../application/search/search_bloc.dart' as _i10;
 import '../../../infrastructure/downloads/downloads_repo_impl.dart' as _i4;
@@ -35,5 +36,6 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i11.DownloadsBloc(get<_i3.IDownloadsRepo>()));
   gh.factory<_i12.FastLaughBloc>(
       () => _i12.FastLaughBloc(get<_i3.IDownloadsRepo>()));
+  gh.factory<_i13.HomeBloc>(() => _i13.HomeBloc(get<_i5.INewAndHotRepo>()));
   return get;
 }

@@ -27,6 +27,14 @@ class ImageCardVertical extends StatelessWidget {
       padding: padding,
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(5),
+        gradient: const LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Color(0xFF424242),
+              Color(0xFF212121),
+            ]),
+            
         image: DecorationImage(
           fit: BoxFit.cover,
           image: NetworkImage(imageUrl),

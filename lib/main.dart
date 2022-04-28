@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'application/downloads/downloads_bloc.dart';
 import 'application/fast_laugh/fast_laugh_bloc.dart';
+import 'application/home/home_bloc.dart';
 import 'application/new_and_hot/new_and_hot_bloc.dart';
 import 'application/search/search_bloc.dart';
 import 'core/colors/colors.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (ctx) => getIt<SearchBloc>()),
         BlocProvider(create: (ctx) => getIt<FastLaughBloc>()),
         BlocProvider(create: (ctx) => getIt<NewAndHotBloc>()),
+        BlocProvider(create: (ctx) => getIt<HomeBloc>()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
