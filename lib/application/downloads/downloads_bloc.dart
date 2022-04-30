@@ -1,4 +1,3 @@
-
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -19,13 +18,20 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
   DownloadsBloc(this._downloadsRepo) : super(DownloadsState.initial()) {
     on<_GetDownloadsImage>(
       (event, emit) async {
+        // check dataExists or not
+        if (state.downloads.isNotEmpty) {
+          return emit(state);
+        }
+
+        // send loading state
         emit(
           state.copyWith(
             isLoading: true,
             downloadsFailureOrSuccesOption: none(),
           ),
         );
-        // call to repo
+
+        // getting data
         final Either<Failure, List<TrendingData>> downloadsOption =
             await _downloadsRepo.getTrendingData();
 
@@ -34,13 +40,15 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
         emit(
           downloadsOption.fold(
             (failure) => state.copyWith(
-              isLoading: false,
               downloadsFailureOrSuccesOption: Some(left(failure)),
-            ),
-            (succes) => state.copyWith(
               isLoading: false,
-              downloadsFailureOrSuccesOption: Some(Right(succes)),
-              downloads: succes,
+              isError: true,
+            ),
+            (result) => state.copyWith(
+              downloadsFailureOrSuccesOption: Some(Right(result)),
+              downloads: result,
+              isLoading: false,
+              isError: false,
             ),
           ),
         );

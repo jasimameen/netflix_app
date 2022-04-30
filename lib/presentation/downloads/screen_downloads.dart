@@ -1,13 +1,13 @@
 import 'dart:math';
 
-import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../application/downloads/downloads_bloc.dart';
-import '../../../core/colors/strings.dart';
-import '../../../core/colors/colors.dart';
-import '../../../core/colors/constants.dart';
-import '../../widgets/custom_app_bar_widget.dart';
+import '../../application/downloads/downloads_bloc.dart';
+import '../../core/colors/strings.dart';
+import '../../core/colors/colors.dart';
+import '../../core/colors/constants.dart';
+import '../widgets/custom_app_bar_widget.dart';
 
 class ScreenDownloads extends StatelessWidget {
   ScreenDownloads({Key? key}) : super(key: key);
@@ -96,40 +96,39 @@ class _Section2 extends StatelessWidget {
               return SizedBox(
                 width: size.width,
                 // height: size.width,
-                child: state.isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : Stack(
-                        alignment: Alignment.bottomCenter,
-                        children: [
-                          state.isLoading
-                              ? const CircularProgressIndicator()
-                              : CircleAvatar(
-                                  radius: size.width * .32,
-                                  backgroundColor: kGreyColor.withOpacity(.5),
-                                ),
-                          DownloadPageCenterImageWidget(
-                            image:
-                                "$imageAppendUrl/${state.downloads[0].posterPath}",
-                            size: Size(size.width * .28, size.width * .43),
-                            angle: 20,
-                            leftMargin: 190,
-                          ),
-                          DownloadPageCenterImageWidget(
-                            image:
-                                "$imageAppendUrl/${state.downloads[1].posterPath}",
-                            size: Size(size.width * .28, size.width * .43),
-                            angle: -20,
-                            rightMargin: 190,
-                          ),
-                          DownloadPageCenterImageWidget(
-                            image:
-                                "$imageAppendUrl/${state.downloads[2].posterPath}",
-                            size: Size(size.width * .35, size.width * .48),
-                            angle: 0,
-                            bottomMargin: 30,
-                          )
-                        ],
-                      ),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    CircleAvatar(
+                      radius: size.width * .32,
+                      backgroundColor: kGreyColor.withOpacity(.5),
+                    ),
+                    DownloadPageCenterImageWidget(
+                      image: "$imageAppendUrl/${state.downloads[0].posterPath}",
+                      size: Size(size.width * .28, size.width * .43),
+                      angle: 20,
+                      leftMargin: 190,
+                      isLoading: state.isLoading,
+                      isError: state.isError,
+                    ),
+                    DownloadPageCenterImageWidget(
+                      image: "$imageAppendUrl/${state.downloads[1].posterPath}",
+                      size: Size(size.width * .28, size.width * .43),
+                      angle: -20,
+                      rightMargin: 190,
+                      isLoading: state.isLoading,
+                      isError: state.isError,
+                    ),
+                    DownloadPageCenterImageWidget(
+                      image: "$imageAppendUrl/${state.downloads[2].posterPath}",
+                      size: Size(size.width * .35, size.width * .48),
+                      angle: 0,
+                      bottomMargin: 30,
+                      isLoading: state.isLoading,
+                      isError: state.isError,
+                    )
+                  ],
+                ),
               );
             },
           ),
@@ -188,6 +187,16 @@ class _Section3 extends StatelessWidget {
 }
 
 class DownloadPageCenterImageWidget extends StatelessWidget {
+  final String image;
+  final Size size;
+  final double angle;
+  final double leftMargin;
+  final double rightMargin;
+  final double topMargin;
+  final double bottomMargin;
+  final bool isLoading;
+  final bool isError;
+
   const DownloadPageCenterImageWidget({
     Key? key,
     required this.image,
@@ -197,16 +206,9 @@ class DownloadPageCenterImageWidget extends StatelessWidget {
     this.rightMargin = 0,
     this.topMargin = 0,
     this.bottomMargin = 20,
+    this.isLoading = false,
+    this.isError = false,
   }) : super(key: key);
-
-  final String image;
-  final Size size;
-  final double angle;
-  final double leftMargin;
-  final double rightMargin;
-  final double topMargin;
-  final double bottomMargin;
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -221,7 +223,7 @@ class DownloadPageCenterImageWidget extends StatelessWidget {
           width: size.width,
           height: size.height,
           decoration: BoxDecoration(
-            color: Colors.pink,
+            color: Colors.grey.shade800,
             borderRadius: BorderRadius.circular(10),
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -230,6 +232,13 @@ class DownloadPageCenterImageWidget extends StatelessWidget {
               ),
             ),
           ),
+          child: isLoading
+              ? const Center(child: CircularProgressIndicator(strokeWidth: 1.5))
+              : isError
+                  ? const Center(
+                      child: Icon(CupertinoIcons.wifi_exclamationmark),
+                    )
+                  : null,
         ),
       ),
     );

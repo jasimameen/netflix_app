@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/colors/colors.dart';
-import '../../downloads/widgets/screen_downloads.dart';
+import '../../downloads/screen_downloads.dart';
 import '../../fast_laugh/screen_fast_laugh.dart';
 import '../../home/screen_home.dart';
 import '../../new_and_hot/screen_new_and_hot.dart';
