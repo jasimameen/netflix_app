@@ -4,11 +4,13 @@ import '../../core/colors/colors.dart';
 import '../../core/colors/constants.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
+  final Widget? leading;
   final String label;
   final Widget? logo;
   final PreferredSizeWidget? bottom;
   const CustomAppBarWidget({
     Key? key,
+    this.leading,
     this.label = "",
     this.logo,
     this.bottom,
@@ -17,6 +19,7 @@ class CustomAppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: leading,
       title: logo ??
           Text(
             label,
@@ -28,7 +31,7 @@ class CustomAppBarWidget extends StatelessWidget {
           ),
       actions: const [
         // kWidth,
-        // const Spacer(),
+        // Spacer(),
         Icon(
           Icons.cast,
           size: 30,

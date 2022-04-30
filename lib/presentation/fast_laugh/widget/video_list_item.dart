@@ -3,16 +3,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix_project/application/fast_laugh/fast_laugh_bloc.dart';
+import 'package:netflix_project/domain/trending/models/trending_data.dart';
 import 'package:netflix_project/presentation/fast_laugh/widget/fast_laugh_video_player.dart';
 
 import '../../../core/colors/strings.dart';
-import '../../../domain/downloads/models/downloads.dart';
 import '../../widgets/mute_button.dart';
 import '../../widgets/vertical_action_button_widget.dart';
 
 class VideoListItemWidgetInherited extends InheritedWidget {
   final Widget widget;
-  final Downloads movieData;
+  final TrendingData movieData;
 
   const VideoListItemWidgetInherited({
     Key? key,

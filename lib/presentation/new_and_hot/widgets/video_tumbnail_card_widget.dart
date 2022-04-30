@@ -5,10 +5,14 @@ import '../../widgets/mute_button.dart';
 
 class VideoTumbnailCardWidget extends StatelessWidget {
   final String image;
+  final double? muteBtnRightMargin;
+  final double? muteBtnBottomMargin;
 
   const VideoTumbnailCardWidget({
     Key? key,
     required this.image,
+    this.muteBtnRightMargin,
+    this.muteBtnBottomMargin,
   }) : super(key: key);
 
   @override
@@ -17,9 +21,9 @@ class VideoTumbnailCardWidget extends StatelessWidget {
       children: [
         Container(
           height: 230,
+          width: double.maxFinite,
           decoration: BoxDecoration(
-            color: Colors.grey[850],
-          ),
+              color: Colors.grey[850], borderRadius: BorderRadius.circular(5)),
           child: Image.network(
             image,
             fit: BoxFit.cover,
@@ -36,8 +40,8 @@ class VideoTumbnailCardWidget extends StatelessWidget {
           clipBehavior: Clip.hardEdge,
         ),
         Positioned(
-          right: 10,
-          bottom: 10,
+          right: muteBtnRightMargin ?? 10,
+          bottom: muteBtnBottomMargin ?? 10,
           child: MuteButton(
             onPressed: () {},
             size: 22,

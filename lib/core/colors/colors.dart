@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart'show Color, Colors, MaterialColor;
+import 'package:flutter/material.dart' show Color, Colors, MaterialColor;
 
 const backgroundColor = Colors.black;
+const primaryColor = Colors.white;
 
 const kWhiteColor = Colors.white;
 const kBlackColor = Colors.black;

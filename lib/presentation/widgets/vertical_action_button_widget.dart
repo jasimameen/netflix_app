@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/colors/colors.dart';
 
@@ -48,7 +49,7 @@ class VerticalActionButtonWidget extends StatelessWidget {
             ),
             Text(
               label,
-              style: TextStyle(
+              style: GoogleFonts.montserrat(
                 fontSize: fontSize,
                 color: fontColor,
                 shadows: const [

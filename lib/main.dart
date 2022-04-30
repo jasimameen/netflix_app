@@ -39,9 +39,9 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: backgroundColor,
           fontFamily: GoogleFonts.montserrat().fontFamily,
           appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
-          textTheme: const TextTheme(
-            bodyText1: TextStyle(color: kWhiteColor),
-            bodyText2: TextStyle(color: kWhiteColor),
+          textTheme:  TextTheme(
+            bodyText1: GoogleFonts.montserrat(color: kWhiteColor),
+            bodyText2: GoogleFonts.montserrat(color: kWhiteColor),
           ),
           iconTheme: const IconThemeData(color: kWhiteColor),
         ),

@@ -1,8 +1,15 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart'
-    show CircularProgressIndicator, Colors, ElevatedButton;
+    show
+        ButtonStyle,
+        CircularProgressIndicator,
+        Colors,
+        ElevatedButton,
+        MaterialPageRoute;
 import 'package:flutter/widgets.dart';
 import 'package:netflix_project/core/colors/constants.dart';
+import 'package:netflix_project/presentation/video_details/screen_video_details.dart';
+import 'package:netflix_project/presentation/widgets/rectangular_icon_button_widget.dart';
 
 import '../../../core/colors/colors.dart';
 import '../../widgets/vertical_action_button_widget.dart';
@@ -67,42 +74,32 @@ class HomeScreenBgCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               // My List Button
-              _customButton(icon: CupertinoIcons.add, label: "My List"),
+              VerticalActionButtonWidget(
+                icon: CupertinoIcons.add,
+                iconSize: 27,
+                label: "My List",
+                verticalGap: 5,
+              ),
               // play Button
-              _playButton(),
-              // Info AButton
-              _customButton(icon: CupertinoIcons.info, label: "Info"),
+              RectangularIconButtonwidget(
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ScreenVideoDetails(),
+                    )),
+                text: "Play",
+                icon: CupertinoIcons.play_arrow_solid,
+              ), // Info AButton
+              VerticalActionButtonWidget(
+                icon: CupertinoIcons.info,
+                iconSize: 27,
+                label: "Info",
+                verticalGap: 5,
+              ),
             ],
           ),
         ),
       ],
-    );
-  }
-
-  VerticalActionButtonWidget _customButton({icon, label}) {
-    return VerticalActionButtonWidget(
-      icon: icon,
-      iconSize: 27,
-      label: label,
-      verticalGap: 5,
-    );
-  }
-
-  ElevatedButton _playButton() {
-    return ElevatedButton.icon(
-      onPressed: () {},
-      icon: const Icon(
-        CupertinoIcons.play_arrow_solid,
-        color: kBlackColor,
-      ),
-      label: const Text(
-        "Play",
-        style: TextStyle(
-          color: kBlackColor,
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
     );
   }
 }
