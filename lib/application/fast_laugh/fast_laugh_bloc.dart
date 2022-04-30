@@ -1,14 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import '../../domain/downloads/i_downloads_repo.dart';
-import '../../domain/downloads/models/downloads.dart';
+import 'package:netflix_project/domain/trending/models/trending_data.dart';
 
+import '../../domain/trending/i_trending_repo.dart';
+
+part 'fast_laugh_bloc.freezed.dart';
 part 'fast_laugh_event.dart';
 part 'fast_laugh_state.dart';
-part 'fast_laugh_bloc.freezed.dart';
 
 final dummyVideoUrls = [
   "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
@@ -24,7 +24,7 @@ ValueNotifier<List<int>> likedVideoidList = ValueNotifier([]);
 @injectable
 class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
   FastLaughBloc(
-    IDownloadsRepo _downloadsRepo,
+    ITrendingRepo _trendingRepo,
   ) : super(FastLaughState.initial()) {
     on<_Initialize>((event, emit) async {
       // intial state -> loading
@@ -35,7 +35,7 @@ class FastLaughBloc extends Bloc<FastLaughEvent, FastLaughState> {
       ));
 
       // get trending movies
-      final _result = await _downloadsRepo.getDownloadsImage();
+      final _result = await _trendingRepo.getTrendingData();
       final _state = _result.fold(
           (failure) => const FastLaughState(
                 videoList: [],

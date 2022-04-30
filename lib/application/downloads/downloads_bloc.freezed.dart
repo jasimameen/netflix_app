@@ -184,9 +184,9 @@ class _$DownloadsStateTearOff {
 
   _DownloadsState call(
       {required bool isLoading,
-      required Option<Either<Failure, List<Downloads>>>
+      required Option<Either<Failure, List<TrendingData>>>
           downloadsFailureOrSuccesOption,
-      required List<Downloads> downloads}) {
+      required List<TrendingData> downloads}) {
     return _DownloadsState(
       isLoading: isLoading,
       downloadsFailureOrSuccesOption: downloadsFailureOrSuccesOption,
@@ -201,9 +201,9 @@ const $DownloadsState = _$DownloadsStateTearOff();
 /// @nodoc
 mixin _$DownloadsState {
   bool get isLoading => throw _privateConstructorUsedError;
-  Option<Either<Failure, List<Downloads>>> get downloadsFailureOrSuccesOption =>
-      throw _privateConstructorUsedError;
-  List<Downloads> get downloads => throw _privateConstructorUsedError;
+  Option<Either<Failure, List<TrendingData>>>
+      get downloadsFailureOrSuccesOption => throw _privateConstructorUsedError;
+  List<TrendingData> get downloads => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DownloadsStateCopyWith<DownloadsState> get copyWith =>
@@ -217,8 +217,9 @@ abstract class $DownloadsStateCopyWith<$Res> {
       _$DownloadsStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
-      Option<Either<Failure, List<Downloads>>> downloadsFailureOrSuccesOption,
-      List<Downloads> downloads});
+      Option<Either<Failure, List<TrendingData>>>
+          downloadsFailureOrSuccesOption,
+      List<TrendingData> downloads});
 }
 
 /// @nodoc
@@ -244,11 +245,11 @@ class _$DownloadsStateCopyWithImpl<$Res>
       downloadsFailureOrSuccesOption: downloadsFailureOrSuccesOption == freezed
           ? _value.downloadsFailureOrSuccesOption
           : downloadsFailureOrSuccesOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, List<Downloads>>>,
+              as Option<Either<Failure, List<TrendingData>>>,
       downloads: downloads == freezed
           ? _value.downloads
           : downloads // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>,
+              as List<TrendingData>,
     ));
   }
 }
@@ -262,8 +263,9 @@ abstract class _$DownloadsStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
-      Option<Either<Failure, List<Downloads>>> downloadsFailureOrSuccesOption,
-      List<Downloads> downloads});
+      Option<Either<Failure, List<TrendingData>>>
+          downloadsFailureOrSuccesOption,
+      List<TrendingData> downloads});
 }
 
 /// @nodoc
@@ -291,11 +293,11 @@ class __$DownloadsStateCopyWithImpl<$Res>
       downloadsFailureOrSuccesOption: downloadsFailureOrSuccesOption == freezed
           ? _value.downloadsFailureOrSuccesOption
           : downloadsFailureOrSuccesOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, List<Downloads>>>,
+              as Option<Either<Failure, List<TrendingData>>>,
       downloads: downloads == freezed
           ? _value.downloads
           : downloads // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>,
+              as List<TrendingData>,
     ));
   }
 }
@@ -311,9 +313,10 @@ class _$_DownloadsState implements _DownloadsState {
   @override
   final bool isLoading;
   @override
-  final Option<Either<Failure, List<Downloads>>> downloadsFailureOrSuccesOption;
+  final Option<Either<Failure, List<TrendingData>>>
+      downloadsFailureOrSuccesOption;
   @override
-  final List<Downloads> downloads;
+  final List<TrendingData> downloads;
 
   @override
   String toString() {
@@ -348,16 +351,17 @@ class _$_DownloadsState implements _DownloadsState {
 abstract class _DownloadsState implements DownloadsState {
   const factory _DownloadsState(
       {required bool isLoading,
-      required Option<Either<Failure, List<Downloads>>>
+      required Option<Either<Failure, List<TrendingData>>>
           downloadsFailureOrSuccesOption,
-      required List<Downloads> downloads}) = _$_DownloadsState;
+      required List<TrendingData> downloads}) = _$_DownloadsState;
 
   @override
   bool get isLoading;
   @override
-  Option<Either<Failure, List<Downloads>>> get downloadsFailureOrSuccesOption;
+  Option<Either<Failure, List<TrendingData>>>
+      get downloadsFailureOrSuccesOption;
   @override
-  List<Downloads> get downloads;
+  List<TrendingData> get downloads;
   @override
   @JsonKey(ignore: true)
   _$DownloadsStateCopyWith<_DownloadsState> get copyWith =>

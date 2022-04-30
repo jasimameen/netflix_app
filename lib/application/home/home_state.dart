@@ -4,8 +4,8 @@ part of 'home_bloc.dart';
 class HomeState with _$HomeState {
   const factory HomeState({
     required String posterPath,
-    required List<NewAndHotData> movieList,
-    required List<NewAndHotData> tvShowList,
+    required List<DiscoverModel> movieList,
+    required List<DiscoverModel> tvShowList,
     required bool isLoading,
     required bool isError,
   }) = _Initial;

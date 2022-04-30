@@ -3,16 +3,16 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-class NewAndHotModel {
-  final List<NewAndHotData> results;
-  NewAndHotModel({
+class DiscoverResults {
+  final List<DiscoverModel> results;
+  DiscoverResults({
     required this.results,
   });
 
-  NewAndHotModel copyWith({
-    List<NewAndHotData>? results,
+  DiscoverResults copyWith({
+    List<DiscoverModel>? results,
   }) {
-    return NewAndHotModel(
+    return DiscoverResults(
       results: results ?? this.results,
     );
   }
@@ -23,17 +23,17 @@ class NewAndHotModel {
     };
   }
 
-  factory NewAndHotModel.fromMap(Map<String, dynamic> map) {
-    return NewAndHotModel(
-      results: List<NewAndHotData>.from(
-          map['results']?.map((x) => NewAndHotData.fromMap(x))),
+  factory DiscoverResults.fromMap(Map<String, dynamic> map) {
+    return DiscoverResults(
+      results: List<DiscoverModel>.from(
+          map['results']?.map((x) => DiscoverModel.fromMap(x))),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory NewAndHotModel.fromJson(String source) =>
-      NewAndHotModel.fromMap(json.decode(source));
+  factory DiscoverResults.fromJson(String source) =>
+      DiscoverResults.fromMap(json.decode(source));
 
   @override
   String toString() => 'NewAndHotModel(results: $results)';
@@ -42,14 +42,14 @@ class NewAndHotModel {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is NewAndHotModel && listEquals(other.results, results);
+    return other is DiscoverResults && listEquals(other.results, results);
   }
 
   @override
   int get hashCode => results.hashCode;
 }
 
-class NewAndHotData {
+class DiscoverModel {
   final int? id;
 
   @JsonKey(name: 'backdrop_path')
@@ -74,7 +74,7 @@ class NewAndHotData {
 
   final String? overview;
 
-  NewAndHotData({
+  DiscoverModel({
     required this.id,
     required this.backdropPath,
     required this.posterPath,
@@ -86,7 +86,7 @@ class NewAndHotData {
     required this.overview,
   });
 
-  NewAndHotData copyWith({
+  DiscoverModel copyWith({
     int? id,
     String? backdropPath,
     String? posterPath,
@@ -97,7 +97,7 @@ class NewAndHotData {
     String? name,
     String? overview,
   }) {
-    return NewAndHotData(
+    return DiscoverModel(
       id: id ?? this.id,
       backdropPath: backdropPath ?? this.backdropPath,
       posterPath: posterPath ?? this.posterPath,
@@ -124,8 +124,8 @@ class NewAndHotData {
     };
   }
 
-  factory NewAndHotData.fromMap(Map<String, dynamic> map) {
-    return NewAndHotData(
+  factory DiscoverModel.fromMap(Map<String, dynamic> map) {
+    return DiscoverModel(
       id: map['id']?.toInt(),
       backdropPath: map['backdrop_path'] ?? '',
       posterPath: map['poster_path'] ?? '',
@@ -140,8 +140,8 @@ class NewAndHotData {
 
   String toJson() => json.encode(toMap());
 
-  factory NewAndHotData.fromJson(String source) =>
-      NewAndHotData.fromMap(json.decode(source));
+  factory DiscoverModel.fromJson(String source) =>
+      DiscoverModel.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -152,7 +152,7 @@ class NewAndHotData {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is NewAndHotData &&
+    return other is DiscoverModel &&
         other.id == id &&
         other.backdropPath == backdropPath &&
         other.posterPath == posterPath &&

@@ -182,8 +182,8 @@ class _$HomeStateTearOff {
 
   _Initial call(
       {required String posterPath,
-      required List<NewAndHotData> movieList,
-      required List<NewAndHotData> tvShowList,
+      required List<DiscoverModel> movieList,
+      required List<DiscoverModel> tvShowList,
       required bool isLoading,
       required bool isError}) {
     return _Initial(
@@ -202,8 +202,8 @@ const $HomeState = _$HomeStateTearOff();
 /// @nodoc
 mixin _$HomeState {
   String get posterPath => throw _privateConstructorUsedError;
-  List<NewAndHotData> get movieList => throw _privateConstructorUsedError;
-  List<NewAndHotData> get tvShowList => throw _privateConstructorUsedError;
+  List<DiscoverModel> get movieList => throw _privateConstructorUsedError;
+  List<DiscoverModel> get tvShowList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
@@ -218,8 +218,8 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res>;
   $Res call(
       {String posterPath,
-      List<NewAndHotData> movieList,
-      List<NewAndHotData> tvShowList,
+      List<DiscoverModel> movieList,
+      List<DiscoverModel> tvShowList,
       bool isLoading,
       bool isError});
 }
@@ -248,11 +248,11 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
       movieList: movieList == freezed
           ? _value.movieList
           : movieList // ignore: cast_nullable_to_non_nullable
-              as List<NewAndHotData>,
+              as List<DiscoverModel>,
       tvShowList: tvShowList == freezed
           ? _value.tvShowList
           : tvShowList // ignore: cast_nullable_to_non_nullable
-              as List<NewAndHotData>,
+              as List<DiscoverModel>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -272,8 +272,8 @@ abstract class _$InitialCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $Res call(
       {String posterPath,
-      List<NewAndHotData> movieList,
-      List<NewAndHotData> tvShowList,
+      List<DiscoverModel> movieList,
+      List<DiscoverModel> tvShowList,
       bool isLoading,
       bool isError});
 }
@@ -303,11 +303,11 @@ class __$InitialCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
       movieList: movieList == freezed
           ? _value.movieList
           : movieList // ignore: cast_nullable_to_non_nullable
-              as List<NewAndHotData>,
+              as List<DiscoverModel>,
       tvShowList: tvShowList == freezed
           ? _value.tvShowList
           : tvShowList // ignore: cast_nullable_to_non_nullable
-              as List<NewAndHotData>,
+              as List<DiscoverModel>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -333,9 +333,9 @@ class _$_Initial implements _Initial {
   @override
   final String posterPath;
   @override
-  final List<NewAndHotData> movieList;
+  final List<DiscoverModel> movieList;
   @override
-  final List<NewAndHotData> tvShowList;
+  final List<DiscoverModel> tvShowList;
   @override
   final bool isLoading;
   @override
@@ -378,17 +378,17 @@ class _$_Initial implements _Initial {
 abstract class _Initial implements HomeState {
   const factory _Initial(
       {required String posterPath,
-      required List<NewAndHotData> movieList,
-      required List<NewAndHotData> tvShowList,
+      required List<DiscoverModel> movieList,
+      required List<DiscoverModel> tvShowList,
       required bool isLoading,
       required bool isError}) = _$_Initial;
 
   @override
   String get posterPath;
   @override
-  List<NewAndHotData> get movieList;
+  List<DiscoverModel> get movieList;
   @override
-  List<NewAndHotData> get tvShowList;
+  List<DiscoverModel> get tvShowList;
   @override
   bool get isLoading;
   @override

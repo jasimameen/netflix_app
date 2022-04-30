@@ -320,8 +320,8 @@ class _$NewAndHotStateTearOff {
   const _$NewAndHotStateTearOff();
 
   _NewAndHotState call(
-      {required List<NewAndHotData> commingSoonList,
-      required List<NewAndHotData> everyOnesWatchingList,
+      {required List<DiscoverModel> commingSoonList,
+      required List<DiscoverModel> everyOnesWatchingList,
       required bool isLoading,
       required bool isError}) {
     return _NewAndHotState(
@@ -338,8 +338,8 @@ const $NewAndHotState = _$NewAndHotStateTearOff();
 
 /// @nodoc
 mixin _$NewAndHotState {
-  List<NewAndHotData> get commingSoonList => throw _privateConstructorUsedError;
-  List<NewAndHotData> get everyOnesWatchingList =>
+  List<DiscoverModel> get commingSoonList => throw _privateConstructorUsedError;
+  List<DiscoverModel> get everyOnesWatchingList =>
       throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
@@ -355,8 +355,8 @@ abstract class $NewAndHotStateCopyWith<$Res> {
           NewAndHotState value, $Res Function(NewAndHotState) then) =
       _$NewAndHotStateCopyWithImpl<$Res>;
   $Res call(
-      {List<NewAndHotData> commingSoonList,
-      List<NewAndHotData> everyOnesWatchingList,
+      {List<DiscoverModel> commingSoonList,
+      List<DiscoverModel> everyOnesWatchingList,
       bool isLoading,
       bool isError});
 }
@@ -381,11 +381,11 @@ class _$NewAndHotStateCopyWithImpl<$Res>
       commingSoonList: commingSoonList == freezed
           ? _value.commingSoonList
           : commingSoonList // ignore: cast_nullable_to_non_nullable
-              as List<NewAndHotData>,
+              as List<DiscoverModel>,
       everyOnesWatchingList: everyOnesWatchingList == freezed
           ? _value.everyOnesWatchingList
           : everyOnesWatchingList // ignore: cast_nullable_to_non_nullable
-              as List<NewAndHotData>,
+              as List<DiscoverModel>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -406,8 +406,8 @@ abstract class _$NewAndHotStateCopyWith<$Res>
       __$NewAndHotStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<NewAndHotData> commingSoonList,
-      List<NewAndHotData> everyOnesWatchingList,
+      {List<DiscoverModel> commingSoonList,
+      List<DiscoverModel> everyOnesWatchingList,
       bool isLoading,
       bool isError});
 }
@@ -434,11 +434,11 @@ class __$NewAndHotStateCopyWithImpl<$Res>
       commingSoonList: commingSoonList == freezed
           ? _value.commingSoonList
           : commingSoonList // ignore: cast_nullable_to_non_nullable
-              as List<NewAndHotData>,
+              as List<DiscoverModel>,
       everyOnesWatchingList: everyOnesWatchingList == freezed
           ? _value.everyOnesWatchingList
           : everyOnesWatchingList // ignore: cast_nullable_to_non_nullable
-              as List<NewAndHotData>,
+              as List<DiscoverModel>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -461,9 +461,9 @@ class _$_NewAndHotState implements _NewAndHotState {
       required this.isError});
 
   @override
-  final List<NewAndHotData> commingSoonList;
+  final List<DiscoverModel> commingSoonList;
   @override
-  final List<NewAndHotData> everyOnesWatchingList;
+  final List<DiscoverModel> everyOnesWatchingList;
   @override
   final bool isLoading;
   @override
@@ -503,15 +503,15 @@ class _$_NewAndHotState implements _NewAndHotState {
 
 abstract class _NewAndHotState implements NewAndHotState {
   const factory _NewAndHotState(
-      {required List<NewAndHotData> commingSoonList,
-      required List<NewAndHotData> everyOnesWatchingList,
+      {required List<DiscoverModel> commingSoonList,
+      required List<DiscoverModel> everyOnesWatchingList,
       required bool isLoading,
       required bool isError}) = _$_NewAndHotState;
 
   @override
-  List<NewAndHotData> get commingSoonList;
+  List<DiscoverModel> get commingSoonList;
   @override
-  List<NewAndHotData> get everyOnesWatchingList;
+  List<DiscoverModel> get everyOnesWatchingList;
   @override
   bool get isLoading;
   @override

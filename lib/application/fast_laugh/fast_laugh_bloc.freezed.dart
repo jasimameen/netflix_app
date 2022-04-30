@@ -182,7 +182,7 @@ class _$FastLaughStateTearOff {
   const _$FastLaughStateTearOff();
 
   _Initial call(
-      {required List<Downloads> videoList,
+      {required List<TrendingData> videoList,
       required bool isLoading,
       required bool isError}) {
     return _Initial(
@@ -198,7 +198,7 @@ const $FastLaughState = _$FastLaughStateTearOff();
 
 /// @nodoc
 mixin _$FastLaughState {
-  List<Downloads> get videoList => throw _privateConstructorUsedError;
+  List<TrendingData> get videoList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
@@ -212,7 +212,7 @@ abstract class $FastLaughStateCopyWith<$Res> {
   factory $FastLaughStateCopyWith(
           FastLaughState value, $Res Function(FastLaughState) then) =
       _$FastLaughStateCopyWithImpl<$Res>;
-  $Res call({List<Downloads> videoList, bool isLoading, bool isError});
+  $Res call({List<TrendingData> videoList, bool isLoading, bool isError});
 }
 
 /// @nodoc
@@ -234,7 +234,7 @@ class _$FastLaughStateCopyWithImpl<$Res>
       videoList: videoList == freezed
           ? _value.videoList
           : videoList // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>,
+              as List<TrendingData>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -253,7 +253,7 @@ abstract class _$InitialCopyWith<$Res>
   factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
       __$InitialCopyWithImpl<$Res>;
   @override
-  $Res call({List<Downloads> videoList, bool isLoading, bool isError});
+  $Res call({List<TrendingData> videoList, bool isLoading, bool isError});
 }
 
 /// @nodoc
@@ -275,7 +275,7 @@ class __$InitialCopyWithImpl<$Res> extends _$FastLaughStateCopyWithImpl<$Res>
       videoList: videoList == freezed
           ? _value.videoList
           : videoList // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>,
+              as List<TrendingData>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -297,7 +297,7 @@ class _$_Initial implements _Initial {
       required this.isError});
 
   @override
-  final List<Downloads> videoList;
+  final List<TrendingData> videoList;
   @override
   final bool isLoading;
   @override
@@ -333,12 +333,12 @@ class _$_Initial implements _Initial {
 
 abstract class _Initial implements FastLaughState {
   const factory _Initial(
-      {required List<Downloads> videoList,
+      {required List<TrendingData> videoList,
       required bool isLoading,
       required bool isError}) = _$_Initial;
 
   @override
-  List<Downloads> get videoList;
+  List<TrendingData> get videoList;
   @override
   bool get isLoading;
   @override

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:netflix_project/domain/trending/i_trending_repo.dart';
+import 'package:netflix_project/domain/trending/models/trending_data.dart';
 
-import '../../domain/downloads/i_downloads_repo.dart';
-import '../../domain/downloads/models/downloads.dart';
 import '../../domain/search/i_search_repo.dart';
 import '../../domain/search/models/search_resp/search_resp.dart';
 
@@ -13,7 +13,7 @@ part 'search_state.dart';
 
 @injectable
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  final IDownloadsRepo _downloadsRepo;
+  final ITrendingRepo _downloadsRepo;
   final ISearchRepo _searchRepo;
 
   SearchBloc(this._downloadsRepo, this._searchRepo)
@@ -36,7 +36,7 @@ Search Result State
         isError: false,
       ));
       // get trending
-      final _result = await _downloadsRepo.getDownloadsImage();
+      final _result = await _downloadsRepo.getTrendingData();
 
       // log("Search Result => " + _result.toString());s
 
@@ -51,7 +51,7 @@ Search Result State
             ),
           );
         },
-        (List<Downloads> list) {
+        (List<TrendingData> list) {
           emit(
             SearchState(
               searchResultList: [],

@@ -1,11 +1,10 @@
-import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:netflix_project/domain/discover/i_discover_repo.dart';
+import 'package:netflix_project/domain/discover/models/discover_model.dart';
 
-import '../../domain/new_and_hot/i_new_and_hot_repo.dart';
-import '../../domain/new_and_hot/models/new_and_hot_model.dart';
 
 part 'home_bloc.freezed.dart';
 part 'home_event.dart';
@@ -13,20 +12,20 @@ part 'home_state.dart';
 
 @injectable
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  final INewAndHotRepo _homeRepo;
+  final IDiscoverRepo _discoverRepo;
 
-  HomeBloc(this._homeRepo) : super(HomeState.initial()) {
+  HomeBloc(this._discoverRepo) : super(HomeState.initial()) {
     on<_GetHomeScreendata>((event, emit) async {
       // return if data alredy exists
       if (state.movieList.isNotEmpty && state.tvShowList.isNotEmpty) {
-        return;
+        return emit(state);
       }
 
       //  send loading to ui
       emit(state.copyWith(isLoading: true, isError: false));
 
       // get movie data
-      final _movieResult = await _homeRepo.getNewAndHotMovieData();
+      final _movieResult = await _discoverRepo.getDiscoverMovieData();
 
       // transform data
 
@@ -51,7 +50,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(_state1);
 
       // get tvshows data
-      final _tvShowsResult = await _homeRepo.getNewAndHotTvData();
+      final _tvShowsResult = await _discoverRepo.getDiscoverTvData();
 
       final _state2 = _tvShowsResult.fold(
           (failure) => state.copyWith(

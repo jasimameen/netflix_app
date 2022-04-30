@@ -2,9 +2,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:netflix_project/domain/discover/models/discover_model.dart';
 
-import '../../domain/new_and_hot/i_new_and_hot_repo.dart';
-import '../../domain/new_and_hot/models/new_and_hot_model.dart';
+import '../../domain/discover/i_discover_repo.dart';
 
 part 'new_and_hot_bloc.freezed.dart';
 part 'new_and_hot_event.dart';
@@ -12,7 +12,7 @@ part 'new_and_hot_state.dart';
 
 @injectable
 class NewAndHotBloc extends Bloc<NewAndHotEvent, NewAndHotState> {
-  final INewAndHotRepo _newAndHotRepo;
+  final IDiscoverRepo _newAndHotRepo;
 
   NewAndHotBloc(this._newAndHotRepo) : super(NewAndHotState.intial()) {
     on<_LoadDataInCommingSoon>((event, emit) async {
@@ -25,7 +25,7 @@ class NewAndHotBloc extends Bloc<NewAndHotEvent, NewAndHotState> {
       emit(state.copyWith(isLoading: true));
 
       // get data from remote
-      final _result = await _newAndHotRepo.getNewAndHotMovieData();
+      final _result = await _newAndHotRepo.getDiscoverMovieData();
 
       // send data to state
       final _state = _result.fold(
@@ -55,7 +55,7 @@ class NewAndHotBloc extends Bloc<NewAndHotEvent, NewAndHotState> {
       emit(state.copyWith(isLoading: true));
 
       // get data from remote
-      final _result = await _newAndHotRepo.getNewAndHotTvData();
+      final _result = await _newAndHotRepo.getDiscoverTvData();
 
       // send data to state
       final _state = _result.fold(

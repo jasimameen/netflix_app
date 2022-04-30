@@ -3,28 +3,28 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:netflix_project/domain/trending/i_trending_repo.dart';
+import 'package:netflix_project/domain/trending/models/trending_data.dart';
 
 import '../../domain/core/api_end_points.dart';
 import '../../domain/core/failure.dart';
-import '../../domain/downloads/i_downloads_repo.dart';
-import '../../domain/downloads/models/downloads.dart';
 
-@LazySingleton(as: IDownloadsRepo)
-class DownloadsRepoImpl implements IDownloadsRepo {
+@LazySingleton(as: ITrendingRepo)
+class TrendingRepoImpl implements ITrendingRepo {
   @override
-  Future<Either<Failure, List<Downloads>>> getDownloadsImage() async {
+  Future<Either<Failure, List<TrendingData>>> getTrendingData() async {
     try {
       final Response responce =
-          await Dio(BaseOptions()).get(ApiEndPoints.downloads);
+          await Dio(BaseOptions()).get(ApiEndPoints.trending);
 
       if (responce.statusCode == 200 || responce.statusCode == 201) {
-        final downloadsList = (responce.data['results'] as List)
+        final trendingList = (responce.data['results'] as List)
             .map((json) {
-              return Downloads.fromJson(json as Map<String, dynamic>);
+              return TrendingData.fromJson(json as Map<String, dynamic>);
             })
             .toList();
 
-        return Right(downloadsList);
+        return Right(trendingList);
       } else {
         throw const Left(Failure.serverFailure());
       }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'downloads.dart';
+part of 'trending_data.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,13 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Downloads _$DownloadsFromJson(Map<String, dynamic> json) {
+TrendingData _$TrendingDataFromJson(Map<String, dynamic> json) {
   return _Downloads.fromJson(json);
 }
 
 /// @nodoc
-class _$DownloadsTearOff {
-  const _$DownloadsTearOff();
+class _$TrendingDataTearOff {
+  const _$TrendingDataTearOff();
 
   _Downloads call(
       {@JsonKey(name: "poster_path") required String? posterPath,
@@ -33,16 +33,16 @@ class _$DownloadsTearOff {
     );
   }
 
-  Downloads fromJson(Map<String, Object?> json) {
-    return Downloads.fromJson(json);
+  TrendingData fromJson(Map<String, Object?> json) {
+    return TrendingData.fromJson(json);
   }
 }
 
 /// @nodoc
-const $Downloads = _$DownloadsTearOff();
+const $TrendingData = _$TrendingDataTearOff();
 
 /// @nodoc
-mixin _$Downloads {
+mixin _$TrendingData {
   @JsonKey(name: "poster_path")
   String? get posterPath => throw _privateConstructorUsedError;
   @JsonKey(name: "title")
@@ -52,14 +52,15 @@ mixin _$Downloads {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DownloadsCopyWith<Downloads> get copyWith =>
+  $TrendingDataCopyWith<TrendingData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DownloadsCopyWith<$Res> {
-  factory $DownloadsCopyWith(Downloads value, $Res Function(Downloads) then) =
-      _$DownloadsCopyWithImpl<$Res>;
+abstract class $TrendingDataCopyWith<$Res> {
+  factory $TrendingDataCopyWith(
+          TrendingData value, $Res Function(TrendingData) then) =
+      _$TrendingDataCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "poster_path") String? posterPath,
       @JsonKey(name: "title") String? title,
@@ -67,12 +68,12 @@ abstract class $DownloadsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DownloadsCopyWithImpl<$Res> implements $DownloadsCopyWith<$Res> {
-  _$DownloadsCopyWithImpl(this._value, this._then);
+class _$TrendingDataCopyWithImpl<$Res> implements $TrendingDataCopyWith<$Res> {
+  _$TrendingDataCopyWithImpl(this._value, this._then);
 
-  final Downloads _value;
+  final TrendingData _value;
   // ignore: unused_field
-  final $Res Function(Downloads) _then;
+  final $Res Function(TrendingData) _then;
 
   @override
   $Res call({
@@ -98,7 +99,8 @@ class _$DownloadsCopyWithImpl<$Res> implements $DownloadsCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$DownloadsCopyWith<$Res> implements $DownloadsCopyWith<$Res> {
+abstract class _$DownloadsCopyWith<$Res>
+    implements $TrendingDataCopyWith<$Res> {
   factory _$DownloadsCopyWith(
           _Downloads value, $Res Function(_Downloads) then) =
       __$DownloadsCopyWithImpl<$Res>;
@@ -110,7 +112,7 @@ abstract class _$DownloadsCopyWith<$Res> implements $DownloadsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$DownloadsCopyWithImpl<$Res> extends _$DownloadsCopyWithImpl<$Res>
+class __$DownloadsCopyWithImpl<$Res> extends _$TrendingDataCopyWithImpl<$Res>
     implements _$DownloadsCopyWith<$Res> {
   __$DownloadsCopyWithImpl(_Downloads _value, $Res Function(_Downloads) _then)
       : super(_value, (v) => _then(v as _Downloads));
@@ -164,7 +166,7 @@ class _$_Downloads implements _Downloads {
 
   @override
   String toString() {
-    return 'Downloads(posterPath: $posterPath, title: $title, name: $name)';
+    return 'TrendingData(posterPath: $posterPath, title: $title, name: $name)';
   }
 
   @override
@@ -196,7 +198,7 @@ class _$_Downloads implements _Downloads {
   }
 }
 
-abstract class _Downloads implements Downloads {
+abstract class _Downloads implements TrendingData {
   const factory _Downloads(
       {@JsonKey(name: "poster_path") required String? posterPath,
       @JsonKey(name: "title") required String? title,

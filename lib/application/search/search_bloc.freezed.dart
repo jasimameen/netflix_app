@@ -334,7 +334,7 @@ class _$SearchStateTearOff {
 
   _SearchState call(
       {required List<SearchResultData> searchResultList,
-      required List<Downloads> idleList,
+      required List<TrendingData> idleList,
       required bool isLoading,
       required bool isError}) {
     return _SearchState(
@@ -353,7 +353,7 @@ const $SearchState = _$SearchStateTearOff();
 mixin _$SearchState {
   List<SearchResultData> get searchResultList =>
       throw _privateConstructorUsedError;
-  List<Downloads> get idleList => throw _privateConstructorUsedError;
+  List<TrendingData> get idleList => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
@@ -369,7 +369,7 @@ abstract class $SearchStateCopyWith<$Res> {
       _$SearchStateCopyWithImpl<$Res>;
   $Res call(
       {List<SearchResultData> searchResultList,
-      List<Downloads> idleList,
+      List<TrendingData> idleList,
       bool isLoading,
       bool isError});
 }
@@ -397,7 +397,7 @@ class _$SearchStateCopyWithImpl<$Res> implements $SearchStateCopyWith<$Res> {
       idleList: idleList == freezed
           ? _value.idleList
           : idleList // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>,
+              as List<TrendingData>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -419,7 +419,7 @@ abstract class _$SearchStateCopyWith<$Res>
   @override
   $Res call(
       {List<SearchResultData> searchResultList,
-      List<Downloads> idleList,
+      List<TrendingData> idleList,
       bool isLoading,
       bool isError});
 }
@@ -449,7 +449,7 @@ class __$SearchStateCopyWithImpl<$Res> extends _$SearchStateCopyWithImpl<$Res>
       idleList: idleList == freezed
           ? _value.idleList
           : idleList // ignore: cast_nullable_to_non_nullable
-              as List<Downloads>,
+              as List<TrendingData>,
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -474,7 +474,7 @@ class _$_SearchState implements _SearchState {
   @override
   final List<SearchResultData> searchResultList;
   @override
-  final List<Downloads> idleList;
+  final List<TrendingData> idleList;
   @override
   final bool isLoading;
   @override
@@ -514,14 +514,14 @@ class _$_SearchState implements _SearchState {
 abstract class _SearchState implements SearchState {
   const factory _SearchState(
       {required List<SearchResultData> searchResultList,
-      required List<Downloads> idleList,
+      required List<TrendingData> idleList,
       required bool isLoading,
       required bool isError}) = _$_SearchState;
 
   @override
   List<SearchResultData> get searchResultList;
   @override
-  List<Downloads> get idleList;
+  List<TrendingData> get idleList;
   @override
   bool get isLoading;
   @override

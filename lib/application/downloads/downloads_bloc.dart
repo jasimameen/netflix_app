@@ -3,10 +3,10 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:netflix_project/domain/trending/i_trending_repo.dart';
+import 'package:netflix_project/domain/trending/models/trending_data.dart';
 
 import '../../domain/core/failure.dart';
-import '../../domain/downloads/i_downloads_repo.dart';
-import '../../domain/downloads/models/downloads.dart';
 
 part 'downloads_bloc.freezed.dart';
 part 'downloads_event.dart';
@@ -14,7 +14,7 @@ part 'downloads_state.dart';
 
 @injectable
 class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
-  final IDownloadsRepo _downloadsRepo;
+  final ITrendingRepo _downloadsRepo;
 
   DownloadsBloc(this._downloadsRepo) : super(DownloadsState.initial()) {
     on<_GetDownloadsImage>(
@@ -26,8 +26,8 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
           ),
         );
         // call to repo
-        final Either<Failure, List<Downloads>> downloadsOption =
-            await _downloadsRepo.getDownloadsImage();
+        final Either<Failure, List<TrendingData>> downloadsOption =
+            await _downloadsRepo.getTrendingData();
 
         // log(downloadsOption.toString());
 
