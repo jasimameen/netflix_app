@@ -2,7 +2,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/discover/models/discover_model.dart';
+import '../../domain/discover/models/discover_model.dart';
 
 import '../../domain/discover/i_discover_repo.dart';
 

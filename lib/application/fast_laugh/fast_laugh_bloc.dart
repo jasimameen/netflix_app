@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/trending/models/trending_data.dart';
+import '../../domain/trending/models/trending_data.dart';
 
 import '../../domain/trending/i_trending_repo.dart';
 

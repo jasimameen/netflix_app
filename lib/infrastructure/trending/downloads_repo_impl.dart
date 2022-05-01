@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/trending/i_trending_repo.dart';
-import 'package:netflix_project/domain/trending/models/trending_data.dart';
+import '../../domain/trending/i_trending_repo.dart';
+import '../../domain/trending/models/trending_data.dart';
 
 import '../../domain/core/api_end_points.dart';
 import '../../domain/core/failure.dart';

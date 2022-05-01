@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/trending/i_trending_repo.dart';
-import 'package:netflix_project/domain/trending/models/trending_data.dart';
+import '../../domain/trending/i_trending_repo.dart';
+import '../../domain/trending/models/trending_data.dart';
 
 import '../../domain/search/i_search_repo.dart';
 import '../../domain/search/models/search_resp/search_resp.dart';

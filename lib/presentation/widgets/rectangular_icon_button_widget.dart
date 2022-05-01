@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/colors.dart';
-import 'package:netflix_project/core/colors/constants.dart';
+import '../../core/colors/colors.dart';
+import '../../core/colors/constants.dart';
 
 class RectangularIconButtonwidget extends StatelessWidget {
   final void Function()? onTap;

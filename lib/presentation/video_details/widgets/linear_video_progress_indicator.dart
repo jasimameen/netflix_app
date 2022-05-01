@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/constants.dart';
+import '../../../core/colors/constants.dart';
 
 class LinearVideoProgressIndicator extends StatelessWidget {
   final double? percentage;

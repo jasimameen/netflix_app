@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_project/application/video_details/video_details_bloc.dart';
-import 'package:netflix_project/core/colors/strings.dart';
-import 'package:netflix_project/domain/discover/models/discover_model.dart';
+import '../../application/video_details/video_details_bloc.dart';
+import '../../core/colors/strings.dart';
+import '../../domain/discover/models/discover_model.dart';
 import 'package:provider/src/provider.dart';
 
 import '../../core/colors/constants.dart';

@@ -21,12 +21,6 @@ class _$HomeEventTearOff {
   _GetHomeScreendata getHomeScreendata() {
     return const _GetHomeScreendata();
   }
-
-  _NavigateToDetailsPage navigateToDetailsPage(BuildContext context) {
-    return _NavigateToDetailsPage(
-      context,
-    );
-  }
 }
 
 /// @nodoc
@@ -37,39 +31,32 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeScreendata,
-    required TResult Function(BuildContext context) navigateToDetailsPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getHomeScreendata,
-    TResult Function(BuildContext context)? navigateToDetailsPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeScreendata,
-    TResult Function(BuildContext context)? navigateToDetailsPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHomeScreendata value) getHomeScreendata,
-    required TResult Function(_NavigateToDetailsPage value)
-        navigateToDetailsPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetHomeScreendata value)? getHomeScreendata,
-    TResult Function(_NavigateToDetailsPage value)? navigateToDetailsPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHomeScreendata value)? getHomeScreendata,
-    TResult Function(_NavigateToDetailsPage value)? navigateToDetailsPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -132,7 +119,6 @@ class _$_GetHomeScreendata implements _GetHomeScreendata {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getHomeScreendata,
-    required TResult Function(BuildContext context) navigateToDetailsPage,
   }) {
     return getHomeScreendata();
   }
@@ -141,7 +127,6 @@ class _$_GetHomeScreendata implements _GetHomeScreendata {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getHomeScreendata,
-    TResult Function(BuildContext context)? navigateToDetailsPage,
   }) {
     return getHomeScreendata?.call();
   }
@@ -150,7 +135,6 @@ class _$_GetHomeScreendata implements _GetHomeScreendata {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getHomeScreendata,
-    TResult Function(BuildContext context)? navigateToDetailsPage,
     required TResult orElse(),
   }) {
     if (getHomeScreendata != null) {
@@ -163,8 +147,6 @@ class _$_GetHomeScreendata implements _GetHomeScreendata {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetHomeScreendata value) getHomeScreendata,
-    required TResult Function(_NavigateToDetailsPage value)
-        navigateToDetailsPage,
   }) {
     return getHomeScreendata(this);
   }
@@ -173,7 +155,6 @@ class _$_GetHomeScreendata implements _GetHomeScreendata {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetHomeScreendata value)? getHomeScreendata,
-    TResult Function(_NavigateToDetailsPage value)? navigateToDetailsPage,
   }) {
     return getHomeScreendata?.call(this);
   }
@@ -182,7 +163,6 @@ class _$_GetHomeScreendata implements _GetHomeScreendata {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetHomeScreendata value)? getHomeScreendata,
-    TResult Function(_NavigateToDetailsPage value)? navigateToDetailsPage,
     required TResult orElse(),
   }) {
     if (getHomeScreendata != null) {
@@ -194,143 +174,6 @@ class _$_GetHomeScreendata implements _GetHomeScreendata {
 
 abstract class _GetHomeScreendata implements HomeEvent {
   const factory _GetHomeScreendata() = _$_GetHomeScreendata;
-}
-
-/// @nodoc
-abstract class _$NavigateToDetailsPageCopyWith<$Res> {
-  factory _$NavigateToDetailsPageCopyWith(_NavigateToDetailsPage value,
-          $Res Function(_NavigateToDetailsPage) then) =
-      __$NavigateToDetailsPageCopyWithImpl<$Res>;
-  $Res call({BuildContext context});
-}
-
-/// @nodoc
-class __$NavigateToDetailsPageCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res>
-    implements _$NavigateToDetailsPageCopyWith<$Res> {
-  __$NavigateToDetailsPageCopyWithImpl(_NavigateToDetailsPage _value,
-      $Res Function(_NavigateToDetailsPage) _then)
-      : super(_value, (v) => _then(v as _NavigateToDetailsPage));
-
-  @override
-  _NavigateToDetailsPage get _value => super._value as _NavigateToDetailsPage;
-
-  @override
-  $Res call({
-    Object? context = freezed,
-  }) {
-    return _then(_NavigateToDetailsPage(
-      context == freezed
-          ? _value.context
-          : context // ignore: cast_nullable_to_non_nullable
-              as BuildContext,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_NavigateToDetailsPage implements _NavigateToDetailsPage {
-  const _$_NavigateToDetailsPage(this.context);
-
-  @override
-  final BuildContext context;
-
-  @override
-  String toString() {
-    return 'HomeEvent.navigateToDetailsPage(context: $context)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _NavigateToDetailsPage &&
-            const DeepCollectionEquality().equals(other.context, context));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(context));
-
-  @JsonKey(ignore: true)
-  @override
-  _$NavigateToDetailsPageCopyWith<_NavigateToDetailsPage> get copyWith =>
-      __$NavigateToDetailsPageCopyWithImpl<_NavigateToDetailsPage>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() getHomeScreendata,
-    required TResult Function(BuildContext context) navigateToDetailsPage,
-  }) {
-    return navigateToDetailsPage(context);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getHomeScreendata,
-    TResult Function(BuildContext context)? navigateToDetailsPage,
-  }) {
-    return navigateToDetailsPage?.call(context);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getHomeScreendata,
-    TResult Function(BuildContext context)? navigateToDetailsPage,
-    required TResult orElse(),
-  }) {
-    if (navigateToDetailsPage != null) {
-      return navigateToDetailsPage(context);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_GetHomeScreendata value) getHomeScreendata,
-    required TResult Function(_NavigateToDetailsPage value)
-        navigateToDetailsPage,
-  }) {
-    return navigateToDetailsPage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_GetHomeScreendata value)? getHomeScreendata,
-    TResult Function(_NavigateToDetailsPage value)? navigateToDetailsPage,
-  }) {
-    return navigateToDetailsPage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_GetHomeScreendata value)? getHomeScreendata,
-    TResult Function(_NavigateToDetailsPage value)? navigateToDetailsPage,
-    required TResult orElse(),
-  }) {
-    if (navigateToDetailsPage != null) {
-      return navigateToDetailsPage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _NavigateToDetailsPage implements HomeEvent {
-  const factory _NavigateToDetailsPage(BuildContext context) =
-      _$_NavigateToDetailsPage;
-
-  BuildContext get context;
-  @JsonKey(ignore: true)
-  _$NavigateToDetailsPageCopyWith<_NavigateToDetailsPage> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

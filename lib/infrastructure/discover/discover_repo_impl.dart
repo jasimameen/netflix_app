@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/discover/i_discover_repo.dart';
-import 'package:netflix_project/domain/discover/models/discover_model.dart';
+import '../../domain/discover/i_discover_repo.dart';
+import '../../domain/discover/models/discover_model.dart';
 
 import '../../domain/core/api_end_points.dart';
 import '../../domain/core/failure.dart';

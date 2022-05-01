@@ -5,9 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:netflix_project/domain/core/di/injectable.dart';
-import 'package:netflix_project/domain/discover/models/discover_model.dart';
-import 'package:netflix_project/presentation/video_details/screen_video_details.dart';
+import '../../domain/core/di/injectable.dart';
+import '../../domain/discover/models/discover_model.dart';
+import '../../presentation/video_details/screen_video_details.dart';
 
 part 'video_details_bloc.freezed.dart';
 part 'video_details_event.dart';

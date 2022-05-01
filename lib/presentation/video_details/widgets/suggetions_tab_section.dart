@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netflix_project/core/colors/colors.dart';
-import 'package:netflix_project/presentation/video_details/widgets/suggetion_card.dart';
+import '../../../core/colors/colors.dart';
+import 'suggetion_card.dart';
 
 class SuggetionsTabSection extends StatelessWidget {
   const SuggetionsTabSection({Key? key}) : super(key: key);

@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix_project/application/video_details/video_details_bloc.dart';
+import '../../application/video_details/video_details_bloc.dart';
 import '../../core/colors/constants.dart';
 
 import '../../application/home/home_bloc.dart';
@@ -50,11 +50,9 @@ class ScreenHome extends StatelessWidget {
               //     .map((e) => imageAppendUrl + e.posterPath)
               //     .toList();
 
-              final _mainDashImage = state
-                  .movieList[Random().nextInt(
+              final _bgCardData = state.movieList[Random().nextInt(
                 state.movieList.length,
-              )]
-                  .posterPath;
+              )];
 
               return SizedBox(
                 child: ListView(
@@ -62,7 +60,7 @@ class ScreenHome extends StatelessWidget {
                   children: [
                     //
                     HomeScreenBgCard(
-                      image: imageAppendUrl + _mainDashImage!,
+                      videoData: _bgCardData,
                       isLoading: isLoading,
                     ),
                     //
