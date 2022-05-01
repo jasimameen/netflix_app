@@ -1,10 +1,12 @@
-
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:netflix_project/application/video_details/video_details_bloc.dart';
 import 'package:netflix_project/domain/discover/i_discover_repo.dart';
 import 'package:netflix_project/domain/discover/models/discover_model.dart';
-
+import 'package:netflix_project/presentation/video_details/screen_video_details.dart';
 
 part 'home_bloc.freezed.dart';
 part 'home_event.dart';
@@ -67,5 +69,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       // send tv State data to ui
       emit(_state2);
     });
+
+    on<_NavigateToDetailsPage>((event, emit) {});
   }
 }

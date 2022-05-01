@@ -36,6 +36,7 @@ class SearchResultWidget extends StatelessWidget {
                     (index) {
                       final movie = state.searchResultList[index];
                       return ImageCardVertical(
+                        onTap: () {},
                         imageUrl: movie.posterImageUrl,
                       );
                     },

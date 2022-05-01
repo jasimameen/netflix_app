@@ -10,3 +10,8 @@ class ApiEndPoints {
 
   static const discoverTv = "$baseUrl/discover/tv?api_key=$API_KEY";
 }
+
+// https://api.themoviedb.org/3/discover/tv?api_key=cd0e3f54937b5c1af6503090f1599fa0
+// https://api.themoviedb.org/3/discover/movie?api_key=cd0e3f54937b5c1af6503090f1599fa0
+// https://api.themoviedb.org/3/search/movie?api_key=cd0e3f54937b5c1af6503090f1599fa0
+// https://api.themoviedb.org/3/trending/all/day?api_key=cd0e3f54937b5c1af6503090f1599fa0

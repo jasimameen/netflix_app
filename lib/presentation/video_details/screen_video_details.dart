@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:netflix_project/presentation/video_details/widgets/video_details_suggetions_section.dart';
+import 'package:intl/intl.dart';
+import 'package:netflix_project/application/video_details/video_details_bloc.dart';
+import 'package:netflix_project/core/colors/strings.dart';
+import 'package:netflix_project/presentation/video_details/widgets/suggetions_tab_section.dart';
 import 'package:netflix_project/presentation/widgets/vertical_action_button_widget.dart';
 
 import '../../core/colors/colors.dart';
@@ -17,72 +21,105 @@ class ScreenVideoDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70),
-          child: CustomAppBarWidget(
-            leading: IconButton(
-              onPressed: () => Navigator.pop(context),
-              icon: const Icon(CupertinoIcons.back),
-              color: kWhiteColor,
-            ),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(70),
+        child: CustomAppBarWidget(
+          leading: IconButton(
+            onPressed: () => Navigator.pop(context),
+            icon: const Icon(CupertinoIcons.back),
+            color: kWhiteColor,
           ),
         ),
-        body: Column(
-          children: [
-            Stack(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(bottom: 13),
-                  child: const VideoTumbnailCardWidget(
-                    image: kHorizontalImage,
-                    muteBtnRightMargin: 5,
-                    muteBtnBottomMargin: 1,
+      ),
+      body: BlocBuilder<VideoDetailsBloc, VideoDetailsState>(
+        builder: (context, state) {
+          final data = state.videoData;
+
+          final title = data.title ?? data.name ?? data.originalTitle ?? data.originalName ?? "Untitled";
+
+          final overView = data.overview ?? "No Description Available";
+
+          final _date = data.firstAirDate ?? data.releaseDate ?? "2020";
+          final year = DateFormat.y().format(
+            DateTime.parse(_date),
+          );
+          final popularity = data.popularity.toString();
+          final percentage = data.popularity!.remainder(100).toInt();
+
+          return Column(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 13),
+                    child: VideoTumbnailCardWidget(
+                      image: imageAppendUrl + state.videoData.backdropPath!,
+                      muteBtnRightMargin: 5,
+                      muteBtnBottomMargin: 1,
+                    ),
                   ),
-                ),
-                Positioned(
-                  left: 0,
-                  bottom: 0,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 5,
-                      horizontal: 20,
-                    ),
-                    decoration: BoxDecoration(
-                      color: kBlackColor,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Text(
-                      "Preview",
-                      style: GoogleFonts.montserrat(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
+                  Positioned(
+                    left: 0,
+                    bottom: 0,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5,
+                        horizontal: 20,
+                      ),
+                      decoration: BoxDecoration(
+                        color: kBlackColor,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: Text(
+                        "Preview",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: ListView(
-                  children: const [
-                    _HeaderSection(),
-                    _ButtonsSection(),
-                    _OverViewSection(),
-                    _UserActionSection(),
-                    DetailsPageSuggetions(),
-                  ],
+                ],
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: ListView(
+                    children: [
+                      _HeaderSection(
+                        title: title,
+                        year: year,
+                        popularity: popularity,
+                      ),
+                      _ButtonsSection(),
+                      _OverViewSection(
+                        title: title,
+                        overView: overView,
+                        percentage: percentage,
+                      ),
+                      _UserActionSection(),
+                      SuggetionsTabSection(),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
-        ));
+            ],
+          );
+        },
+      ),
+    );
   }
 }
 
 class _HeaderSection extends StatelessWidget {
-  const _HeaderSection({Key? key}) : super(key: key);
+  final String title, year, popularity;
+
+  const _HeaderSection({
+    Key? key,
+    required this.title,
+    required this.year,
+    required this.popularity,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +128,7 @@ class _HeaderSection extends StatelessWidget {
       children: [
         // title
         Text(
-          "Age of Samuria: Battle for Japan",
+          title,
           style: GoogleFonts.montserrat(
             fontSize: 40,
             fontWeight: FontWeight.w500,
@@ -111,9 +148,9 @@ class _HeaderSection extends StatelessWidget {
               ),
             ),
             kWidth,
-            const Text(
-              "2020",
-              style: TextStyle(
+            Text(
+              year,
+              style: const TextStyle(
                 color: kGreyColor,
                 fontSize: 18,
               ),
@@ -122,7 +159,7 @@ class _HeaderSection extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
               color: kGreyColor.shade800,
-              child: const Text("1B+"),
+              child: Text("${popularity[1]}B+"),
             ),
             kWidth,
             const Text(
@@ -210,7 +247,14 @@ class _ButtonsSection extends StatelessWidget {
 }
 
 class _OverViewSection extends StatelessWidget {
-  const _OverViewSection({Key? key}) : super(key: key);
+  final String title, overView;
+  final int percentage;
+  const _OverViewSection({
+    Key? key,
+    required this.title,
+    required this.overView,
+    required this.percentage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -220,7 +264,7 @@ class _OverViewSection extends StatelessWidget {
         // Title
         kHeight,
         Text(
-          "The Rise of Nobunga",
+          title,
           style: GoogleFonts.montserrat(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -229,14 +273,14 @@ class _OverViewSection extends StatelessWidget {
         kHeight,
 
         // progressbar
-        const LinearVideoProgressIndicator(
-          percentage: 35,
+        LinearVideoProgressIndicator(
+          percentage: percentage.toDouble(),
         ),
         kHeight,
 
         // Overview
         Text(
-          "The show revolves around Shannon, who must find ways to balance her professional life of protecting witnesses, her professional relationship with her partner and her problematic personal life.",
+          overView,
           style: GoogleFonts.montserrat(
             color: kGreyColor,
             fontSize: 18,

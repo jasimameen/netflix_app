@@ -44,16 +44,14 @@ class CommingSoonTabView extends StatelessWidget {
           return ListView.builder(
             itemBuilder: (context, index) {
               final data = state.commingSoonList[index];
-              return data.id != null
-                  ? CommingSoonCard(
-                      key: const Key('commig_soon'),
-                      id: data.id.toString(),
-                      date: data.releaseDate,
-                      backgroundImage: "$imageAppendUrl${data.backdropPath}",
-                      title: data.title ?? data.originalTitle,
-                      overView: data.overview ?? 'no Description',
-                    )
-                  : const SizedBox();
+              return CommingSoonCard(
+                key: const Key('commig_soon'),
+                id: data.id.toString(),
+                date: data.releaseDate!,
+                backgroundImage: "$imageAppendUrl${data.backdropPath}",
+                title: data.title ?? data.originalTitle ?? "Untitled",
+                overView: data.overview ?? 'no Description',
+              );
             },
             itemCount: state.commingSoonList.length,
           );

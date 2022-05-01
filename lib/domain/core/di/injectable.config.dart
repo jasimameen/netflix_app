@@ -7,11 +7,12 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../../../application/downloads/downloads_bloc.dart' as _i11;
-import '../../../application/fast_laugh/fast_laugh_bloc.dart' as _i12;
-import '../../../application/home/home_bloc.dart' as _i13;
+import '../../../application/downloads/downloads_bloc.dart' as _i12;
+import '../../../application/fast_laugh/fast_laugh_bloc.dart' as _i13;
+import '../../../application/home/home_bloc.dart' as _i14;
 import '../../../application/new_and_hot/new_and_hot_bloc.dart' as _i9;
 import '../../../application/search/search_bloc.dart' as _i10;
+import '../../../application/video_details/video_details_bloc.dart' as _i11;
 import '../../../infrastructure/discover/discover_repo_impl.dart' as _i4;
 import '../../../infrastructure/search/search_repo_impl.dart' as _i6;
 import '../../../infrastructure/trending/downloads_repo_impl.dart' as _i8;
@@ -32,10 +33,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i9.NewAndHotBloc(get<_i3.IDiscoverRepo>()));
   gh.factory<_i10.SearchBloc>(
       () => _i10.SearchBloc(get<_i7.ITrendingRepo>(), get<_i5.ISearchRepo>()));
-  gh.factory<_i11.DownloadsBloc>(
-      () => _i11.DownloadsBloc(get<_i7.ITrendingRepo>()));
-  gh.factory<_i12.FastLaughBloc>(
-      () => _i12.FastLaughBloc(get<_i7.ITrendingRepo>()));
-  gh.factory<_i13.HomeBloc>(() => _i13.HomeBloc(get<_i3.IDiscoverRepo>()));
+  gh.factory<_i11.VideoDetailsBloc>(() => _i11.VideoDetailsBloc());
+  gh.factory<_i12.DownloadsBloc>(
+      () => _i12.DownloadsBloc(get<_i7.ITrendingRepo>()));
+  gh.factory<_i13.FastLaughBloc>(
+      () => _i13.FastLaughBloc(get<_i7.ITrendingRepo>()));
+  gh.factory<_i14.HomeBloc>(() => _i14.HomeBloc(get<_i3.IDiscoverRepo>()));
   return get;
 }

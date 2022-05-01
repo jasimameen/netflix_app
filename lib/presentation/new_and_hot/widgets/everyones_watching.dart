@@ -30,8 +30,8 @@ class EveryOnesWatchingTabView extends StatelessWidget {
             itemBuilder: (context, index) {
               final _data = state.everyOnesWatchingList[index];
               return _EveryOnesWatchingCard(
-                image: imageAppendUrl + _data.backdropPath,
-                title: _data.name ?? _data.originalName,
+                image: imageAppendUrl + _data.backdropPath!,
+                title: _data.name ?? _data.originalName ?? "Unnamed",
                 overView: _data.overview,
               );
             },

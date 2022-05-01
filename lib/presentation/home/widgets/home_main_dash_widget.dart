@@ -1,13 +1,7 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart'
-    show
-        ButtonStyle,
-        CircularProgressIndicator,
-        Colors,
-        ElevatedButton,
-        MaterialPageRoute;
+    show CircularProgressIndicator, Colors, MaterialPageRoute;
 import 'package:flutter/widgets.dart';
-import 'package:netflix_project/core/colors/constants.dart';
 import 'package:netflix_project/presentation/video_details/screen_video_details.dart';
 import 'package:netflix_project/presentation/widgets/rectangular_icon_button_widget.dart';
 

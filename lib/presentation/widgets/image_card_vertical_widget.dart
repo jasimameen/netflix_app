@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 class ImageCardVertical extends StatelessWidget {
+  final void Function() onTap;
   final String imageUrl;
   final double? height;
   final double? width;
@@ -10,6 +11,7 @@ class ImageCardVertical extends StatelessWidget {
 
   const ImageCardVertical({
     Key? key,
+    required this.onTap,
     required this.imageUrl,
     this.height,
     this.width,
@@ -20,24 +22,26 @@ class ImageCardVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      margin: margin,
-      padding: padding,
-      decoration: BoxDecoration(
-        borderRadius: borderRadius ?? BorderRadius.circular(5),
-        gradient: const LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color(0xFF424242),
-              Color(0xFF212121),
-            ]),
-            
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: NetworkImage(imageUrl),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: height,
+        width: width,
+        margin: margin,
+        padding: padding,
+        decoration: BoxDecoration(
+          borderRadius: borderRadius ?? BorderRadius.circular(5),
+          gradient: const LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color(0xFF424242),
+                Color(0xFF212121),
+              ]),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: NetworkImage(imageUrl),
+          ),
         ),
       ),
     );

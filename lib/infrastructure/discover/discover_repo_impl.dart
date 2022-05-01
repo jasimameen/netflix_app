@@ -14,11 +14,10 @@ class NewAndHotRepoImpl implements IDiscoverRepo {
   @override
   Future<Either<Failure, DiscoverResults>> getDiscoverMovieData() async {
     try {
-      final responce =
-          await Dio(BaseOptions()).get(ApiEndPoints.discoverMovie);
+      final responce = await Dio(BaseOptions()).get(ApiEndPoints.discoverMovie);
 
       if (responce.statusCode == 200 || responce.statusCode == 201) {
-        final result = DiscoverResults.fromMap(responce.data);
+        final result = DiscoverResults.fromJson(responce.data);
         log(result.results[0].toString());
         return Right(result);
       } else {
@@ -36,7 +35,8 @@ class NewAndHotRepoImpl implements IDiscoverRepo {
       final responce = await Dio(BaseOptions()).get(ApiEndPoints.discoverTv);
 
       if (responce.statusCode == 200 || responce.statusCode == 201) {
-        final result = DiscoverResults.fromMap(responce.data);
+        final result = DiscoverResults.fromJson(responce.data);
+        log(result.results[0].toString());
         return Right(result);
       } else {
         return const Left(Failure.serverFailure());
