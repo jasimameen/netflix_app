@@ -18,7 +18,7 @@ class DownloadsBloc extends Bloc<DownloadsEvent, DownloadsState> {
   DownloadsBloc(this._downloadsRepo) : super(DownloadsState.initial()) {
     on<_GetDownloadsImage>(
       (event, emit) async {
-        // check dataExists or not
+        // check dataExists or not  
         if (state.downloads.isNotEmpty) {
           return emit(state);
         }
